@@ -261,13 +261,12 @@
     color:var(--charcoal);
   }
   .date-cell.empty{border:none; background:transparent;}
-  .date-cell.open{background:#F5EDE3; border-color:#E2CCB5;}
-  .date-cell.booked{background:#F3E6DE; border-color:#e3c9b8; opacity:0.85;}
+
   .date-cell.today{box-shadow:inset 0 0 0 2px var(--ochre);}
   .date-cell .dot{
     position:absolute; bottom:6px; right:6px; width:7px; height:7px; border-radius:50%;
   }
-  .open .dot{background:#B8956A;}
+
   .booked .dot{background:var(--clay-deep);}
   .cal-foot{
     padding:16px 24px; border-top:1px solid var(--line);
@@ -341,37 +340,55 @@
   }
   .btn-outline-dark:hover{background:var(--charcoal); color:var(--paper);}
 
-  /* ---------- GALLERY ---------- */
+  /* ---------- PHOTO STRIP ---------- */
   .gallery-section{background:var(--ink); color:var(--paper); padding:84px 0;}
   .gallery-section .section-head h2{color:var(--paper);}
   .gallery-section .section-head p{color:var(--paper); opacity:0.7;}
   .gallery-section .section-label{color:var(--ochre);}
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    grid-template-rows:auto auto;
-    gap:10px;
-    margin-bottom:22px;
+  .strip-outer{
+    position:relative; display:flex; align-items:center;
+    margin:0 0 24px;
   }
-  @media (max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
-  .gallery-item{
+  .strip-viewport{
+    overflow:hidden; flex:1;
+    cursor:grab;
+  }
+  .strip-viewport:active{cursor:grabbing;}
+  .strip-track{
+    display:flex; gap:12px;
+    will-change:transform;
+  }
+  .strip-slide{
+    flex:none; width:300px; height:260px;
     border-radius:4px; overflow:hidden;
-    background:rgba(255,255,255,0.06);
-    aspect-ratio:1;
+    background:rgba(255,255,255,0.07);
   }
-  .gallery-item.tall{
-    grid-row: span 2;
-    aspect-ratio: auto;
-  }
-  .gallery-item img{
+  .strip-slide img{
     width:100%; height:100%; object-fit:cover; display:block;
-    transition:transform .4s ease;
   }
-  .gallery-item:hover img{transform:scale(1.04);}
+  .strip-btn{
+    flex:none; width:44px; height:44px;
+    background:var(--clay); border:none; border-radius:50%;
+    color:var(--paper); font-size:1.1rem; cursor:pointer;
+    z-index:2; transition:background .2s;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .strip-btn:hover{background:var(--clay-deep);}
+  .strip-btn-left{margin-right:12px;}
+  .strip-btn-right{margin-left:12px;}
   .gallery-note{
     text-align:center; font-size:0.88rem; opacity:0.6;
-    font-family:'JetBrains Mono',monospace;
+    font-family:'JetBrains Mono',monospace; margin-top:8px;
   }
+
+  /* ---------- CALENDAR COLOURS (three-tier) ---------- */
+  .date-cell.status-free{background:#E8F5EE; border-color:#B8DEC9;}
+  .date-cell.status-busy{background:#FEF3E2; border-color:#F5CC80;}
+  .date-cell.status-full{background:#FAEAE4; border-color:#E8B49A;}
+  .date-cell.past{opacity:0.38; pointer-events:none;}
+  .status-free .dot{background:#4A9B6F;}
+  .status-busy .dot{background:#E8A020;}
+  .status-full .dot{background:#C4622D;}
 
   /* reveal-on-scroll */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
@@ -548,8 +565,9 @@
           </div>
         </div>
         <div class="cal-legend">
-          <div class="leg-item"><span class="leg-dot" style="background:var(--sage);"></span> Open for booking</div>
-          <div class="leg-item"><span class="leg-dot" style="background:var(--clay-deep);"></span> Already booked</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#4A9B6F;"></span> Free</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#E8A020;"></span> Busy</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#C4622D;"></span> Fully booked</div>
           <div class="leg-item"><span class="leg-dot" style="background:transparent; border:2px solid var(--ochre); width:5px; height:5px;"></span> Today</div>
         </div>
         <div class="grid-days">
@@ -600,7 +618,7 @@
     </div>
   </section>
 
-  <!-- PHOTO GALLERY -->
+  <!-- PHOTO STRIP -->
   <section class="gallery-section" id="photos">
     <div class="wrap">
       <div class="section-head reveal">
@@ -608,23 +626,47 @@
         <h2>Meet some of the animals I've cared for</h2>
         <p>Real photos from real visits — with permission from their owners. Every one of them a regular by the second visit.</p>
       </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item tall">
-          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/plirlbvcdn/original.heic?compress=70&fit=crop&h=500&w=400&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
-        </div>
-        <div class="gallery-item">
-          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/kvxrjbvnue/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
-        </div>
-        <div class="gallery-item">
-          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/xkcrfcdunk/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
-        </div>
-        <div class="gallery-item">
-          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/iwahvfejoo/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
-        </div>
-        <div class="gallery-item">
-          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/daffycbcea/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+    </div>
+    <div class="strip-outer reveal">
+      <button class="strip-btn strip-btn-left" id="stripPrev" aria-label="Previous photos">←</button>
+      <div class="strip-viewport" id="stripViewport">
+        <div class="strip-track" id="stripTrack">
+          <!-- =====================================================
+               ADD YOUR PHOTOS HERE
+               Replace the src with your image paths, e.g:
+               src="images/cat1.jpg"
+               Add as many <div class="strip-slide"> blocks as you want
+          ====================================================== -->
+          <div class="strip-slide"><img src="images/pet1.jpg" alt="Pet photo 1" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet2.jpg" alt="Pet photo 2" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet3.jpg" alt="Pet photo 3" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet4.jpg" alt="Pet photo 4" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet5.jpg" alt="Pet photo 5" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet6.jpg" alt="Pet photo 6" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet7.jpg" alt="Pet photo 7" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet8.jpg" alt="Pet photo 8" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet9.jpg" alt="Pet photo 9" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet10.jpg" alt="Pet photo 10" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet11.jpg" alt="Pet photo 11" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet12.jpg" alt="Pet photo 12" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet13.jpg" alt="Pet photo 13" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet14.jpg" alt="Pet photo 14" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet15.jpg" alt="Pet photo 15" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet16.jpg" alt="Pet photo 16" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet17.jpg" alt="Pet photo 17" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet18.jpg" alt="Pet photo 18" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet19.jpg" alt="Pet photo 19" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet20.jpg" alt="Pet photo 20" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet21.jpg" alt="Pet photo 21" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet22.jpg" alt="Pet photo 22" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet23.jpg" alt="Pet photo 23" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet24.jpg" alt="Pet photo 24" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet25.jpg" alt="Pet photo 25" onerror="this.closest('.strip-slide').style.display='none'"></div>
         </div>
       </div>
+      <button class="strip-btn strip-btn-right" id="stripNext" aria-label="Next photos">→</button>
+    </div>
+    <div class="wrap">
       <p class="gallery-note reveal">Want to add your pet to this wall? Send me a photo after your first visit 🐾</p>
     </div>
   </section>
@@ -638,7 +680,7 @@
         <p>Share your dates and a bit about your pet's routine — I'll confirm availability and follow up within an hour.</p>
       </div>
       <div class="contact-grid">
-        <form class="reveal" id="contact-form">
+        <form class="reveal" id="contact-form" action="https://formspree.io/f/mwvdazga" method="POST">
           <div class="field-row">
             <div>
               <label for="name">Your name</label>
@@ -694,29 +736,45 @@
 </footer>
 
 <script>
-  // Reveal on scroll
+  // ---- Reveal on scroll ----
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
   }, {threshold:0.12});
   revealEls.forEach(el => io.observe(el));
 
-  // ---- Calendar ----
-  // Demo "today" anchored to a fixed date for consistent display
-  const TODAY = new Date(2026, 5, 23); // Jun 23 2026
+  // ================================================================
+  // CALENDAR — edit your availability here
+  // Format: "YYYY-MM-DD": "free" | "busy" | "full"
+  //   free = green  (available all day)
+  //   busy = orange (some slots taken, still bookable)
+  //   full = red    (fully booked, not available)
+  // Days not listed default to "free"
+  // ================================================================
+  const SCHEDULE = {
+    "2026-07-04": "full",
+    "2026-07-05": "full",
+    "2026-07-06": "busy",
+    "2026-07-10": "full",
+    "2026-07-11": "busy",
+    "2026-07-12": "full",
+    "2026-07-18": "busy",
+    "2026-07-19": "full",
+    "2026-07-25": "full",
+    "2026-07-26": "full",
+    "2026-08-01": "busy",
+    "2026-08-08": "full",
+    "2026-08-09": "full",
+    "2026-08-15": "full",
+    "2026-08-16": "full",
+  };
+
+  const TODAY = new Date();
   let viewYear = TODAY.getFullYear();
   let viewMonth = TODAY.getMonth();
-
-  // Deterministic pseudo-booked days so the calendar looks "real" and is stable across reloads
-  function isBooked(y, m, d){
-    const seed = (y * 433 + (m+1) * 97 + d * 31) % 100;
-    // weekends slightly more likely booked
-    const day = new Date(y, m, d).getDay();
-    const weekendBoost = (day === 0 || day === 6) ? 18 : 0;
-    return seed < (30 + weekendBoost);
-  }
-
   const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  function pad(n){ return String(n).padStart(2,'0'); }
 
   function renderCalendar(){
     const grid = document.getElementById('cal-grid');
@@ -727,26 +785,31 @@
     const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
     for(let i=0; i<firstDay; i++){
-      const empty = document.createElement('div');
-      empty.className = 'date-cell empty';
-      grid.appendChild(empty);
+      const e = document.createElement('div');
+      e.className = 'date-cell empty';
+      grid.appendChild(e);
     }
 
-    let openCount = 0;
+    let freeCount = 0;
     for(let d=1; d<=daysInMonth; d++){
+      const key = `${viewYear}-${pad(viewMonth+1)}-${pad(d)}`;
+      const status = SCHEDULE[key] || 'free';
+      if(status === 'free') freeCount++;
+
       const cell = document.createElement('div');
-      const booked = isBooked(viewYear, viewMonth, d);
-      cell.className = 'date-cell ' + (booked ? 'booked' : 'open');
-      if(!booked) openCount++;
+      cell.className = 'date-cell status-' + status;
 
       const isToday = (viewYear === TODAY.getFullYear() && viewMonth === TODAY.getMonth() && d === TODAY.getDate());
       if(isToday) cell.classList.add('today');
+
+      const isPast = new Date(viewYear, viewMonth, d) < new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate());
+      if(isPast) cell.classList.add('past');
 
       cell.innerHTML = d + '<span class="dot"></span>';
       grid.appendChild(cell);
     }
 
-    document.getElementById('cal-open-count').textContent = openCount + ' open day' + (openCount===1?'':'s') + ' this month';
+    document.getElementById('cal-open-count').textContent = freeCount + ' open day' + (freeCount===1?'':'s') + ' this month';
   }
 
   document.getElementById('cal-today-label').textContent = 'Today: ' + monthNames[TODAY.getMonth()].slice(0,3) + ' ' + TODAY.getDate();
@@ -762,13 +825,53 @@
 
   renderCalendar();
 
-  // ---- Contact form (static demo behavior) ----
-  document.getElementById('contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    const status = document.getElementById('form-status');
-    status.style.color = 'var(--clay-deep)';
-    status.textContent = 'This form is a visual demo — connect it to a form service (e.g. Formspree) or your email to go live.';
-  });
+  // ---- Contact form — handled by Formspree ----
+
+  // ================================================================
+  // PHOTO STRIP — auto-scroll + arrow controls
+  // ================================================================
+  const track = document.getElementById('stripTrack');
+  const viewport = document.getElementById('stripViewport');
+  const SLIDE_W = 300 + 12; // card width + gap
+  let offset = 0;
+  let autoTimer;
+  let isPaused = false;
+
+  function cloneSlides(){
+    const slides = [...track.querySelectorAll('.strip-slide')];
+    slides.forEach(s => track.appendChild(s.cloneNode(true)));
+  }
+  cloneSlides();
+
+  function moveTo(x, smooth){
+    track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
+    track.style.transform = `translateX(${-x}px)`;
+  }
+
+  function getMaxOffset(){
+    return (track.querySelectorAll('.strip-slide').length / 2) * SLIDE_W;
+  }
+
+  function advance(dir){
+    offset += dir * SLIDE_W;
+    const max = getMaxOffset();
+    if(offset >= max) { moveTo(max, false); offset = 0; setTimeout(()=>moveTo(0, false), 20); return; }
+    if(offset < 0) { offset = max - SLIDE_W; moveTo(offset, false); return; }
+    moveTo(offset, true);
+  }
+
+  function startAuto(){
+    autoTimer = setInterval(() => { if(!isPaused) advance(1); }, 3200);
+  }
+
+  document.getElementById('stripPrev').addEventListener('click', () => { advance(-1); isPaused = true; clearInterval(autoTimer); setTimeout(()=>{ isPaused = false; startAuto(); }, 6000); });
+  document.getElementById('stripNext').addEventListener('click', () => { advance(1);  isPaused = true; clearInterval(autoTimer); setTimeout(()=>{ isPaused = false; startAuto(); }, 6000); });
+
+  viewport.addEventListener('mouseenter', () => isPaused = true);
+  viewport.addEventListener('mouseleave', () => isPaused = false);
+
+  moveTo(0, false);
+  startAuto();
 </script>
 
 </body>
