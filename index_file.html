@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena's Happy Paws — Pet Sitting & Dog Walking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2C1A0E;
+    --paper:#FBF6F0;
+    --paper-deep:#F2E9DE;
+    --clay:#C4622D;
+    --clay-deep:#A84E22;
+    --charcoal:#3A2415;
+    --sage:#B8956A;
+    --ochre:#E8A87C;
+    --line: rgba(58,36,21,0.13);
+    --line-light: rgba(251,246,240,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  :focus-visible{outline:2px solid var(--clay); outline-offset:3px; border-radius:2px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--ink);
+    color:var(--paper);
+    border-bottom:1px solid var(--line-light);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem;
+    color:var(--paper); text-decoration:none;
+    letter-spacing:-0.01em;
+  }
+  .brand .mark{
+    width:30px;height:30px; flex:none;
+  }
+  .navlinks{display:flex; gap:30px; list-style:none; font-size:0.92rem;}
+  .navlinks a{text-decoration:none; color:var(--paper); opacity:0.78; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--clay); color:var(--paper); padding:9px 18px;
+    border-radius:3px; text-decoration:none; font-size:0.88rem; font-weight:500;
+    border:1px solid var(--clay); transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:transparent; color:var(--clay);}
+  .navlinks-mobile-toggle{display:none;}
+
+  @media (max-width: 720px){
+    .navlinks{display:none;}
+    .nav-cta{font-size:0.82rem; padding:8px 14px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink); color:var(--paper);
+    position:relative;
+    overflow:hidden;
+    padding:64px 0 0;
+  }
+  .hero-grain{
+    position:absolute; inset:0; opacity:0.05; pointer-events:none;
+    background-image: radial-gradient(circle at 1px 1px, var(--paper) 1px, transparent 0);
+    background-size: 14px 14px;
+  }
+  .hero-inner{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:50px;
+    align-items:center;
+    padding-bottom:50px;
+  }
+  @media (max-width: 880px){
+    .hero-inner{grid-template-columns:1fr; padding-bottom:36px;}
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:0.76rem;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--ochre);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:""; display:inline-block; width:7px; height:7px;
+    background:var(--ochre); border-radius:50%;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.04;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--clay); font-weight:500;
+  }
+  .hero p.lede{
+    font-size:1.08rem; max-width:480px; opacity:0.82; margin-bottom:30px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px; border-radius:3px; text-decoration:none;
+    font-size:0.93rem; font-weight:500; font-family:'Inter',sans-serif;
+    transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--clay); color:var(--paper);}
+  .btn-primary:hover{background:var(--clay-deep); transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--line-light); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--paper); transform:translateY(-1px);}
+
+  /* logbook card in hero */
+  .logbook-peek{
+    background:var(--paper); color:var(--charcoal);
+    border-radius:4px; padding:22px 22px 18px;
+    font-family:'JetBrains Mono', monospace; font-size:0.82rem;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.45);
+    transform:rotate(1.2deg);
+    border:1px solid var(--line);
+  }
+  .logbook-peek .lp-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1px dashed var(--line); padding-bottom:10px; margin-bottom:12px;
+    font-family:'Inter',sans-serif;
+  }
+  .logbook-peek .lp-head strong{font-family:'Fraunces',serif; font-size:1rem;}
+  .lp-row{display:flex; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+  .lp-row:last-child{border-bottom:none;}
+  .lp-time{color:var(--clay-deep); flex:none; width:64px;}
+  .lp-note{color:var(--charcoal); opacity:0.8;}
+  .lp-tag{
+    margin-left:auto; flex:none; font-size:0.68rem; text-transform:uppercase;
+    letter-spacing:0.06em; background:var(--sage); color:var(--ink);
+    padding:2px 7px; border-radius:2px;
+  }
+
+  .hero-strip{
+    border-top:1px solid var(--line-light);
+    display:flex; flex-wrap:wrap;
+  }
+  .hs-item{
+    flex:1; min-width:160px;
+    padding:18px 0; text-align:center;
+    border-right:1px solid var(--line-light);
+    font-family:'JetBrains Mono', monospace; font-size:0.78rem;
+    letter-spacing:0.03em; opacity:0.85;
+  }
+  .hs-item:last-child{border-right:none;}
+  .hs-item b{display:block; font-family:'Fraunces',serif; font-size:1.3rem; font-weight:600; color:var(--ochre); margin-bottom:2px;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:84px 0;}
+  .section-head{margin-bottom:46px; max-width:600px;}
+  .section-label{
+    font-family:'JetBrains Mono', monospace; font-size:0.76rem;
+    text-transform:uppercase; letter-spacing:0.1em; color:var(--clay-deep);
+    margin-bottom:12px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:10px;}
+  .section-head p{opacity:0.72; font-size:1rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .service-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden;
+  }
+  @media (max-width: 800px){.service-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--paper); padding:32px 28px;
+    transition:background .25s;
+  }
+  .service-card:hover{background:#fff;}
+  .service-card .entry-no{
+    font-family:'JetBrains Mono', monospace; font-size:0.74rem; color:var(--sage);
+    margin-bottom:18px; letter-spacing:0.05em;
+  }
+  .service-card h3{font-size:1.18rem; margin-bottom:10px;}
+  .service-card p{font-size:0.92rem; opacity:0.75; margin-bottom:16px;}
+  .service-price{
+    font-family:'JetBrains Mono', monospace; font-size:0.85rem;
+    color:var(--clay-deep); border-top:1px dashed var(--line); padding-top:14px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr; gap:32px;}}
+  .about-card{
+    background:var(--ink); color:var(--paper); border-radius:4px;
+    padding:28px; font-family:'JetBrains Mono', monospace; font-size:0.84rem;
+  }
+  .about-card .field{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line-light);}
+  .about-card .field:last-child{border-bottom:none;}
+  .about-card .field span:first-child{opacity:0.6;}
+  .about-card .field span:last-child{color:var(--ochre); text-align:right;}
+  .about-body p{margin-bottom:16px; font-size:1.02rem;}
+  .about-body p:first-of-type{font-size:1.18rem; font-family:'Fraunces',serif; font-style:italic; font-weight:500; color:var(--ink);}
+
+  /* ---------- AVAILABILITY / CALENDAR ---------- */
+  .calendar-wrap{
+    background:var(--ink); color:var(--paper);
+  }
+  .cal-card{
+    background:var(--paper); color:var(--charcoal); border-radius:4px; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .cal-top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 24px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:12px;
+  }
+  .cal-top h3{font-size:1.25rem;}
+  .cal-nav{display:flex; align-items:center; gap:14px; font-family:'JetBrains Mono',monospace; font-size:0.85rem;}
+  .cal-nav button{
+    background:var(--paper-deep); border:1px solid var(--line); border-radius:3px;
+    width:30px; height:30px; cursor:pointer; font-size:0.95rem; color:var(--charcoal);
+    transition:background .2s;
+  }
+  .cal-nav button:hover{background:var(--clay); color:var(--paper); border-color:var(--clay);}
+  .cal-legend{display:flex; gap:16px; padding:14px 24px; font-size:0.78rem; font-family:'JetBrains Mono',monospace; border-bottom:1px solid var(--line); flex-wrap:wrap;}
+  .leg-item{display:flex; align-items:center; gap:6px;}
+  .leg-dot{width:9px; height:9px; border-radius:50%;}
+  .grid-days{
+    display:grid; grid-template-columns:repeat(7,1fr);
+    font-family:'JetBrains Mono', monospace; font-size:0.7rem;
+    text-transform:uppercase; letter-spacing:0.04em; opacity:0.55;
+    padding:14px 12px 0;
+  }
+  .grid-days div{text-align:center; padding-bottom:8px;}
+  .grid-dates{
+    display:grid; grid-template-columns:repeat(7,1fr);
+    gap:6px; padding:0 12px 20px;
+  }
+  .date-cell{
+    aspect-ratio:1; border-radius:3px; position:relative;
+    display:flex; align-items:flex-start; justify-content:flex-start;
+    padding:6px; font-family:'JetBrains Mono', monospace; font-size:0.78rem;
+    border:1px solid var(--line); background:var(--paper);
+    color:var(--charcoal);
+  }
+  .date-cell.empty{border:none; background:transparent;}
+  .date-cell.open{background:#F5EDE3; border-color:#E2CCB5;}
+  .date-cell.booked{background:#F3E6DE; border-color:#e3c9b8; opacity:0.85;}
+  .date-cell.today{box-shadow:inset 0 0 0 2px var(--ochre);}
+  .date-cell .dot{
+    position:absolute; bottom:6px; right:6px; width:7px; height:7px; border-radius:50%;
+  }
+  .open .dot{background:#B8956A;}
+  .booked .dot{background:var(--clay-deep);}
+  .cal-foot{
+    padding:16px 24px; border-top:1px solid var(--line);
+    font-size:0.85rem; opacity:0.7; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- TESTIMONIAL STRIP ---------- */
+  .quote-strip{
+    background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .quote-strip blockquote{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    font-size:clamp(1.2rem,2.6vw,1.6rem); max-width:680px; margin:0 auto 16px;
+    color:var(--ink);
+  }
+  .quote-strip cite{font-family:'JetBrains Mono',monospace; font-size:0.8rem; opacity:0.6; font-style:normal;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+  form{display:flex; flex-direction:column; gap:16px;}
+  label{font-size:0.82rem; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.05em; opacity:0.65; margin-bottom:6px; display:block;}
+  input, textarea, select{
+    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:3px;
+    background:#fff; font-family:'Inter',sans-serif; font-size:0.95rem; color:var(--charcoal);
+    transition:border-color .2s;
+  }
+  input:focus, textarea:focus, select:focus{border-color:var(--clay); outline:none;}
+  textarea{resize:vertical; min-height:110px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:480px){.field-row{grid-template-columns:1fr;}}
+  .submit-btn{
+    background:var(--ink); color:var(--paper); border:none; padding:14px 24px;
+    border-radius:3px; font-size:0.95rem; cursor:pointer; font-weight:500;
+    transition:background .2s; margin-top:6px;
+  }
+  .submit-btn:hover{background:var(--clay-deep);}
+  .contact-info{font-family:'JetBrains Mono', monospace; font-size:0.92rem;}
+  .contact-info .ci-row{padding:14px 0; border-bottom:1px solid var(--line);}
+  .contact-info .ci-row span{display:block; opacity:0.55; font-size:0.74rem; text-transform:uppercase; margin-bottom:4px;}
+  .form-status{font-size:0.85rem; margin-top:4px; min-height:1.2em;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:var(--paper); padding:40px 0 28px;}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  .foot-inner p{font-size:0.82rem; opacity:0.55; font-family:'JetBrains Mono', monospace;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-section{background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .reviews-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:32px;
+  }
+  @media (max-width:700px){.reviews-grid{grid-template-columns:1fr;}}
+  .review-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:4px;
+    padding:24px 22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .review-stars{color:var(--clay); font-size:1rem; letter-spacing:2px;}
+  .review-text{font-size:0.95rem; line-height:1.6; color:var(--charcoal); flex:1; font-style:italic;}
+  .review-meta{display:flex; flex-direction:column; gap:2px;}
+  .review-meta strong{font-size:0.9rem;}
+  .review-meta span{font-size:0.78rem; font-family:'JetBrains Mono',monospace; opacity:0.55;}
+  .reviews-cta{text-align:center; margin-top:8px;}
+  .btn-outline-dark{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:3px; text-decoration:none;
+    font-size:0.9rem; font-weight:500;
+    border:1px solid var(--charcoal); color:var(--charcoal);
+    transition:background .2s, color .2s;
+  }
+  .btn-outline-dark:hover{background:var(--charcoal); color:var(--paper);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-section{background:var(--ink); color:var(--paper); padding:84px 0;}
+  .gallery-section .section-head h2{color:var(--paper);}
+  .gallery-section .section-head p{color:var(--paper); opacity:0.7;}
+  .gallery-section .section-label{color:var(--ochre);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:auto auto;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  @media (max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  .gallery-item{
+    border-radius:4px; overflow:hidden;
+    background:rgba(255,255,255,0.06);
+    aspect-ratio:1;
+  }
+  .gallery-item.tall{
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .4s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.04);}
+  .gallery-note{
+    text-align:center; font-size:0.88rem; opacity:0.6;
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap" style="padding-left:0; padding-right:0;">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 32 32" fill="none">
+        <path d="M9 12 C9 7, 13 4, 16 4 C19 4, 23 7, 23 12 L24 20 C24 25, 20 28, 16 28 C12 28, 8 25, 8 20 Z" fill="#C97D5D"/>
+        <path d="M9 12 L6 6 L11 9 Z" fill="#C97D5D"/>
+        <path d="M23 12 L26 6 L21 9 Z" fill="#C97D5D"/>
+        <circle cx="13" cy="15" r="1.3" fill="#1F2E27"/>
+        <circle cx="19" cy="15" r="1.3" fill="#1F2E27"/>
+        <path d="M14.5 19 Q16 20.3 17.5 19" stroke="#1F2E27" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      </svg>
+      Elena's Happy Paws
+    </a>
+    <ul class="navlinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#availability">Availability</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a visit</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grain"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Currently taking bookings · Amersfoort, Netherlands</span>
+        <h1>Happy pets,<br><em>happy owners</em> —<br>while you're away,<br>they're in good hands.</h1>
+        <p class="lede">Cats, dogs, rabbits, fish, chickens, and more — daily visits, dog walks, overnight stays, and medication care. Every pet known by name and habit, every visit logged.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Check availability →</a>
+          <a href="#services" class="btn btn-ghost">See services</a>
+        </div>
+      </div>
+      <div>
+        <div class="logbook-peek">
+          <div class="lp-head">
+            <strong>Visit Log — Today</strong>
+            <span>Tue, Jun 23</span>
+          </div>
+          <div class="lp-row"><span class="lp-time">8:10 AM</span><span class="lp-note">Fed, fresh water, litter scooped</span><span class="lp-tag">Milo 🐱</span></div>
+          <div class="lp-row"><span class="lp-time">9:30 AM</span><span class="lp-note">45 min walk, happy & tired after</span><span class="lp-tag">Biscuit 🐶</span></div>
+          <div class="lp-row"><span class="lp-time">1:40 PM</span><span class="lp-note">Pellets, hay topped up, cage cleaned</span><span class="lp-tag">Coco 🐇</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap hero-strip" style="padding:0;">
+      <div class="hs-item"><b>5 yrs</b>experience</div>
+      <div class="hs-item"><b>5.0 ⭐</b>on Rover · 13 reviews</div>
+      <div class="hs-item"><b>daily</b>photos & videos</div>
+      <div class="hs-item"><b>&lt;1 hr</b>response time</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label">What I offer</span>
+        <h2>Care for every pet, in their own home</h2>
+        <p>Cats, dogs, rabbits, fish, hamsters, chickens, and more — every animal cared for in their own space, on their own schedule, with someone who actually pays attention.</p>
+      </div>
+      <div class="service-grid reveal">
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 01</div>
+          <h3>Cat sitting</h3>
+          <p>Drop-in visits or overnight stays for cats. Feeding, litter, fresh water, and company on their terms — no rush, no strangers' smells.</p>
+          <div class="service-price">from €16 / visit · €55 / night</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 02</div>
+          <h3>Dog walks & care</h3>
+          <p>30 or 60-minute walks, feeding, and home visits for dogs. Solo walks so your dog gets full attention — not lost in a group.</p>
+          <div class="service-price">from €15 / walk · €20 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 03</div>
+          <h3>Small pets</h3>
+          <p>Rabbits, hamsters, guinea pigs, and other small animals. Feeding, cleaning, fresh water, and a check-in so nothing goes unnoticed.</p>
+          <div class="service-price">from €14 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 04</div>
+          <h3>Fish & aquariums</h3>
+          <p>Feeding on schedule, water top-ups, filter checks, and a visual health check. Great as an add-on to any other visit.</p>
+          <div class="service-price">from €8 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 05</div>
+          <h3>Chickens & backyard birds</h3>
+          <p>Opening and closing the coop, feeding, water refill, egg collection, and a welfare check. Morning and evening visits available.</p>
+          <div class="service-price">from €15 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 06</div>
+          <h3>Medication & senior care</h3>
+          <p>Pills, insulin, subcutaneous fluids, mobility support — for any species. Routines that need precision and patience are welcome.</p>
+          <div class="service-price">from €22 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 07</div>
+          <h3>Multi-pet households</h3>
+          <p>Mixed households with different feeding schedules, separate spaces, or animals that don't share well — handled with individual care.</p>
+          <div class="service-price">from €22 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 08</div>
+          <h3>Plant & home care</h3>
+          <p>Added to any visit — watering, mail pickup, rotating lights and blinds so the house looks lived-in while you're away.</p>
+          <div class="service-price">+€4 / visit</div>
+        </div>
+        <div class="service-card">
+          <div class="entry-no">ENTRY / 09</div>
+          <h3>Meet & greet</h3>
+          <p>A free first meeting before any booking — for your pets to get used to me, and for us to go over routines and any special needs.</p>
+          <div class="service-price">no charge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-card reveal">
+        <div class="field"><span>Name</span><span>Elena K.</span></div>
+        <div class="field"><span>Location</span><span>Amersfoort, NL</span></div>
+        <div class="field"><span>Experience</span><span>5 years</span></div>
+        <div class="field"><span>Rating on Rover</span><span>5.0 ⭐ · 13 reviews</span></div>
+        <div class="field"><span>Repeat clients</span><span>4 repeat pet parents</span></div>
+        <div class="field"><span>Response time</span><span>Usually under an hour</span></div>
+        <div class="field"><span>Skills</span><span>Oral medication, senior pets</span></div>
+      </div>
+      <div class="about-body reveal">
+        <span class="section-label">About</span>
+        <p>"I believe every pet deserves to feel safe, happy, and loved — especially when their owner is away."</p>
+        <p>My name is Elena, and I've always been passionate about animals and the unique personalities that make each one so special. A few years ago I became the happy parent of Arya, my cat, and caring for her made me realise how much I love truly understanding an animal's individual needs, routines, and preferences.</p>
+        <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends — so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
+        <p>Every visit comes with photos and videos so you're never left wondering. If something seems off — appetite, behaviour, energy — you hear about it the same day, not when you get home.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY CALENDAR -->
+  <section class="calendar-wrap" id="availability">
+    <div class="wrap">
+      <div class="section-head reveal" style="color:var(--paper);">
+        <span class="section-label" style="color:var(--ochre);">Schedule</span>
+        <h2 style="color:var(--paper);">Current availability</h2>
+        <p style="opacity:0.75;">A general view of open and booked days. Exact visit times are confirmed once you reach out — this shows day-level availability only.</p>
+      </div>
+
+      <div class="cal-card reveal">
+        <div class="cal-top">
+          <h3 id="cal-month-label">June 2026</h3>
+          <div class="cal-nav">
+            <button id="cal-prev" aria-label="Previous month">←</button>
+            <span id="cal-today-label">Today: Jun 23</span>
+            <button id="cal-next" aria-label="Next month">→</button>
+          </div>
+        </div>
+        <div class="cal-legend">
+          <div class="leg-item"><span class="leg-dot" style="background:var(--sage);"></span> Open for booking</div>
+          <div class="leg-item"><span class="leg-dot" style="background:var(--clay-deep);"></span> Already booked</div>
+          <div class="leg-item"><span class="leg-dot" style="background:transparent; border:2px solid var(--ochre); width:5px; height:5px;"></span> Today</div>
+        </div>
+        <div class="grid-days">
+          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="grid-dates" id="cal-grid"></div>
+        <div class="cal-foot">
+          <span>Booked days fill quickly around holidays — reach out early.</span>
+          <span id="cal-open-count">— open days this month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label">What clients say</span>
+        <h2>5.0 ⭐ on Rover · 13 reviews</h2>
+        <p>Verified reviews from real pet owners on Rover.com.</p>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Elena took very well care of our two cats. Every day some lovely pictures and short movies of our cats. Thanks Elena, for all your help."</p>
+          <div class="review-meta"><strong>Rob V.</strong><span>Drop-in Visits · April 2026</span></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Elena was a great sitter for our cat Salchi. She was really attentive, especially when Salchi threw up at some point — she watched over him making sure he recovered and kept us posted the whole time. Super reliable and easy to communicate with. Definitely recommend."</p>
+          <div class="review-meta"><strong>Tiffany S.</strong><span>Drop-in Visits · March 2026</span></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Elena was a dream catsitter! Everything in her profile is true, and more. Excellent with communication, spent plenty of time playing with our 2 cats and tended to their every need. We'd recommend her to anyone who wants a trustworthy, kind, funny and truly caring catsitter. Without her, we wouldn't have been able to enjoy our holiday ❤️"</p>
+          <div class="review-meta"><strong>Maartje v.</strong><span>Drop-in Visits · January 2026</span></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"We're really pleased with our experience with Elena. She's very communicative, reliable, sent some very funny videos of her hanging out with Lilith and we came home to a happy and relaxed little cat. We would definitely recommend her to anyone looking for a pet sitter in the Amersfoort area."</p>
+          <div class="review-meta"><strong>Danielle F.</strong><span>Drop-in Visits · November 2025</span></div>
+        </div>
+      </div>
+      <div class="reviews-cta reveal">
+        <a href="https://www.rover.com/members/elena-k-trusted-by-cats-approved-by-dogs/" target="_blank" rel="noopener" class="btn btn-outline-dark">Read all 13 reviews on Rover →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery-section" id="photos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label">Pet clients</span>
+        <h2>Meet some of the animals I've cared for</h2>
+        <p>Real photos from real visits — with permission from their owners. Every one of them a regular by the second visit.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item tall">
+          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/plirlbvcdn/original.heic?compress=70&fit=crop&h=500&w=400&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+        </div>
+        <div class="gallery-item">
+          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/kvxrjbvnue/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+        </div>
+        <div class="gallery-item">
+          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/xkcrfcdunk/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+        </div>
+        <div class="gallery-item">
+          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/iwahvfejoo/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+        </div>
+        <div class="gallery-item">
+          <img src="https://rover-com.imgix.net/images/people/gD16dqGQ/daffycbcea/original.heic?compress=70&fit=crop&h=280&w=360&ixlib=python-1.2.0" alt="Pet client photo" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'">
+        </div>
+      </div>
+      <p class="gallery-note reveal">Want to add your pet to this wall? Send me a photo after your first visit 🐾</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label">Get in touch</span>
+        <h2>Tell me about your pet</h2>
+        <p>Share your dates and a bit about your pet's routine — I'll confirm availability and follow up within an hour.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="reveal" id="contact-form">
+          <div class="field-row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div>
+              <label for="dates">Dates needed</label>
+              <input id="dates" name="dates" type="text" placeholder="e.g. Jul 4 – Jul 9">
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Drop-in visits</option>
+                <option>Overnight stays</option>
+                <option>Medication & senior care</option>
+                <option>Multi-pet household</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="message">About your pet</label>
+            <textarea id="message" name="message" placeholder="Name, species, age, routine, anything I should know"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send inquiry</button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+
+        <div class="contact-info reveal">
+          <div class="ci-row"><span>Email</span>hello@elenashappypaws.com</div>
+          <div class="ci-row"><span>Also on</span><a href="https://www.rover.com/members/elena-k-trusted-by-cats-approved-by-dogs/" target="_blank" rel="noopener" style="color:var(--clay-deep);">Rover.com profile →</a></div>
+          <div class="ci-row"><span>Response time</span>Usually under an hour</div>
+          <div class="ci-row"><span>Location</span>Amersfoort, Netherlands</div>
+          <div class="ci-row"><span>Booking notice</span>48 hours preferred, less for regulars</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <p>Elena's Happy Paws — Pet Sitting & Dog Walking</p>
+    <p>Bonded & insured · est. 2020</p>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+
+  // ---- Calendar ----
+  // Demo "today" anchored to a fixed date for consistent display
+  const TODAY = new Date(2026, 5, 23); // Jun 23 2026
+  let viewYear = TODAY.getFullYear();
+  let viewMonth = TODAY.getMonth();
+
+  // Deterministic pseudo-booked days so the calendar looks "real" and is stable across reloads
+  function isBooked(y, m, d){
+    const seed = (y * 433 + (m+1) * 97 + d * 31) % 100;
+    // weekends slightly more likely booked
+    const day = new Date(y, m, d).getDay();
+    const weekendBoost = (day === 0 || day === 6) ? 18 : 0;
+    return seed < (30 + weekendBoost);
+  }
+
+  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  function renderCalendar(){
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+    document.getElementById('cal-month-label').textContent = monthNames[viewMonth] + ' ' + viewYear;
+
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+    for(let i=0; i<firstDay; i++){
+      const empty = document.createElement('div');
+      empty.className = 'date-cell empty';
+      grid.appendChild(empty);
+    }
+
+    let openCount = 0;
+    for(let d=1; d<=daysInMonth; d++){
+      const cell = document.createElement('div');
+      const booked = isBooked(viewYear, viewMonth, d);
+      cell.className = 'date-cell ' + (booked ? 'booked' : 'open');
+      if(!booked) openCount++;
+
+      const isToday = (viewYear === TODAY.getFullYear() && viewMonth === TODAY.getMonth() && d === TODAY.getDate());
+      if(isToday) cell.classList.add('today');
+
+      cell.innerHTML = d + '<span class="dot"></span>';
+      grid.appendChild(cell);
+    }
+
+    document.getElementById('cal-open-count').textContent = openCount + ' open day' + (openCount===1?'':'s') + ' this month';
+  }
+
+  document.getElementById('cal-today-label').textContent = 'Today: ' + monthNames[TODAY.getMonth()].slice(0,3) + ' ' + TODAY.getDate();
+
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    viewMonth--; if(viewMonth < 0){ viewMonth = 11; viewYear--; }
+    renderCalendar();
+  });
+  document.getElementById('cal-next').addEventListener('click', () => {
+    viewMonth++; if(viewMonth > 11){ viewMonth = 0; viewYear++; }
+    renderCalendar();
+  });
+
+  renderCalendar();
+
+  // ---- Contact form (static demo behavior) ----
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    status.style.color = 'var(--clay-deep)';
+    status.textContent = 'This form is a visual demo — connect it to a form service (e.g. Formspree) or your email to go live.';
+  });
+</script>
+
+</body>
+</html>
