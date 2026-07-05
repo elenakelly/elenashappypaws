@@ -55,9 +55,7 @@
     color:var(--paper); text-decoration:none;
     letter-spacing:-0.01em;
   }
-  .brand .mark{
-    width:30px;height:30px; flex:none;
-  }
+  .brand .mark{ width:34px; height:34px; flex:none; }
   .navlinks{display:flex; gap:30px; list-style:none; font-size:0.92rem;}
   .navlinks a{text-decoration:none; color:var(--paper); opacity:0.78; transition:opacity .2s;}
   .navlinks a:hover{opacity:1;}
@@ -67,8 +65,6 @@
     border:1px solid var(--clay); transition:background .2s, color .2s;
   }
   .nav-cta:hover{background:transparent; color:var(--clay);}
-  .navlinks-mobile-toggle{display:none;}
-
   @media (max-width: 720px){
     .navlinks{display:none;}
     .nav-cta{font-size:0.82rem; padding:8px 14px;}
@@ -77,9 +73,7 @@
   /* ---------- HERO ---------- */
   .hero{
     background:var(--ink); color:var(--paper);
-    position:relative;
-    overflow:hidden;
-    padding:64px 0 0;
+    position:relative; overflow:hidden; padding:64px 0 0;
   }
   .hero-grain{
     position:absolute; inset:0; opacity:0.05; pointer-events:none;
@@ -89,18 +83,13 @@
   .hero-inner{
     position:relative; z-index:1;
     display:grid; grid-template-columns: 1.1fr 0.9fr; gap:50px;
-    align-items:center;
-    padding-bottom:50px;
+    align-items:center; padding-bottom:50px;
   }
-  @media (max-width: 880px){
-    .hero-inner{grid-template-columns:1fr; padding-bottom:36px;}
-  }
+  @media (max-width: 880px){ .hero-inner{grid-template-columns:1fr; padding-bottom:36px;} }
   .eyebrow{
     font-family:'JetBrains Mono', monospace; font-size:0.76rem;
-    letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--ochre);
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:22px;
+    letter-spacing:0.12em; text-transform:uppercase; color:var(--ochre);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
   }
   .eyebrow::before{
     content:""; display:inline-block; width:7px; height:7px;
@@ -108,17 +97,9 @@
     animation:pulse 2.4s ease-in-out infinite;
   }
   @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
-  .hero h1{
-    font-size:clamp(2.4rem, 5vw, 3.6rem);
-    line-height:1.04;
-    margin-bottom:22px;
-  }
-  .hero h1 em{
-    font-style:italic; color:var(--clay); font-weight:500;
-  }
-  .hero p.lede{
-    font-size:1.08rem; max-width:480px; opacity:0.82; margin-bottom:30px;
-  }
+  .hero h1{ font-size:clamp(2.4rem, 5vw, 3.6rem); line-height:1.04; margin-bottom:22px; }
+  .hero h1 em{ font-style:italic; color:var(--clay); font-weight:500; }
+  .hero p.lede{ font-size:1.08rem; max-width:480px; opacity:0.82; margin-bottom:30px; }
   .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -132,14 +113,12 @@
   .btn-ghost{border-color:var(--line-light); color:var(--paper);}
   .btn-ghost:hover{border-color:var(--paper); transform:translateY(-1px);}
 
-  /* logbook card in hero */
   .logbook-peek{
     background:var(--paper); color:var(--charcoal);
     border-radius:4px; padding:22px 22px 18px;
     font-family:'JetBrains Mono', monospace; font-size:0.82rem;
     box-shadow:0 30px 60px -20px rgba(0,0,0,0.45);
-    transform:rotate(1.2deg);
-    border:1px solid var(--line);
+    transform:rotate(1.2deg); border:1px solid var(--line);
   }
   .logbook-peek .lp-head{
     display:flex; justify-content:space-between; align-items:baseline;
@@ -156,14 +135,9 @@
     letter-spacing:0.06em; background:var(--sage); color:var(--ink);
     padding:2px 7px; border-radius:2px;
   }
-
-  .hero-strip{
-    border-top:1px solid var(--line-light);
-    display:flex; flex-wrap:wrap;
-  }
+  .hero-strip{ border-top:1px solid var(--line-light); display:flex; flex-wrap:wrap; }
   .hs-item{
-    flex:1; min-width:160px;
-    padding:18px 0; text-align:center;
+    flex:1; min-width:160px; padding:18px 0; text-align:center;
     border-right:1px solid var(--line-light);
     font-family:'JetBrains Mono', monospace; font-size:0.78rem;
     letter-spacing:0.03em; opacity:0.85;
@@ -189,10 +163,7 @@
     background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden;
   }
   @media (max-width: 800px){.service-grid{grid-template-columns:1fr;}}
-  .service-card{
-    background:var(--paper); padding:32px 28px;
-    transition:background .25s;
-  }
+  .service-card{ background:var(--paper); padding:32px 28px; transition:background .25s; }
   .service-card:hover{background:#fff;}
   .service-card .entry-no{
     font-family:'JetBrains Mono', monospace; font-size:0.74rem; color:var(--sage);
@@ -219,10 +190,31 @@
   .about-body p{margin-bottom:16px; font-size:1.02rem;}
   .about-body p:first-of-type{font-size:1.18rem; font-family:'Fraunces',serif; font-style:italic; font-weight:500; color:var(--ink);}
 
-  /* ---------- AVAILABILITY / CALENDAR ---------- */
-  .calendar-wrap{
-    background:var(--ink); color:var(--paper);
+  /* Profile photo */
+  .profile-photo-wrap{
+    margin-bottom:22px;
+    position:relative; display:inline-block;
   }
+  .profile-photo{
+    width:100%; max-width:320px;
+    border-radius:4px; display:block;
+    border:3px solid var(--paper-deep);
+    box-shadow: 4px 4px 0 var(--clay);
+    object-fit:cover; aspect-ratio:4/5;
+    background:var(--paper-deep);
+  }
+  .profile-photo-placeholder{
+    width:100%; max-width:320px; aspect-ratio:4/5;
+    border-radius:4px; border:2px dashed var(--line);
+    background:var(--paper-deep);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; color:var(--sage); font-family:'JetBrains Mono',monospace; font-size:0.8rem;
+    text-align:center; padding:20px;
+  }
+  .profile-photo-placeholder svg{ opacity:0.4; }
+
+  /* ---------- AVAILABILITY / CALENDAR ---------- */
+  .calendar-wrap{ background:var(--ink); color:var(--paper); }
   .cal-card{
     background:var(--paper); color:var(--charcoal); border-radius:4px; overflow:hidden;
     border:1px solid var(--line);
@@ -249,41 +241,20 @@
     padding:14px 12px 0;
   }
   .grid-days div{text-align:center; padding-bottom:8px;}
-  .grid-dates{
-    display:grid; grid-template-columns:repeat(7,1fr);
-    gap:6px; padding:0 12px 20px;
-  }
+  .grid-dates{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; padding:0 12px 20px; }
   .date-cell{
     aspect-ratio:1; border-radius:3px; position:relative;
     display:flex; align-items:flex-start; justify-content:flex-start;
     padding:6px; font-family:'JetBrains Mono', monospace; font-size:0.78rem;
-    border:1px solid var(--line); background:var(--paper);
-    color:var(--charcoal);
+    border:1px solid var(--line); background:var(--paper); color:var(--charcoal);
   }
   .date-cell.empty{border:none; background:transparent;}
-
   .date-cell.today{box-shadow:inset 0 0 0 2px var(--ochre);}
-  .date-cell .dot{
-    position:absolute; bottom:6px; right:6px; width:7px; height:7px; border-radius:50%;
-  }
-
-  .booked .dot{background:var(--clay-deep);}
+  .date-cell .dot{ position:absolute; bottom:6px; right:6px; width:7px; height:7px; border-radius:50%; }
   .cal-foot{
     padding:16px 24px; border-top:1px solid var(--line);
     font-size:0.85rem; opacity:0.7; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
   }
-
-  /* ---------- TESTIMONIAL STRIP ---------- */
-  .quote-strip{
-    background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-    text-align:center;
-  }
-  .quote-strip blockquote{
-    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
-    font-size:clamp(1.2rem,2.6vw,1.6rem); max-width:680px; margin:0 auto 16px;
-    color:var(--ink);
-  }
-  .quote-strip cite{font-family:'JetBrains Mono',monospace; font-size:0.8rem; opacity:0.6; font-style:normal;}
 
   /* ---------- CONTACT ---------- */
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
@@ -317,9 +288,7 @@
 
   /* ---------- REVIEWS ---------- */
   .reviews-section{background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .reviews-grid{
-    display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:32px;
-  }
+  .reviews-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:32px; }
   @media (max-width:700px){.reviews-grid{grid-template-columns:1fr;}}
   .review-card{
     background:var(--paper); border:1px solid var(--line); border-radius:4px;
@@ -345,27 +314,12 @@
   .gallery-section .section-head h2{color:var(--paper);}
   .gallery-section .section-head p{color:var(--paper); opacity:0.7;}
   .gallery-section .section-label{color:var(--ochre);}
-  .strip-outer{
-    position:relative; display:flex; align-items:center;
-    margin:0 0 24px;
-  }
-  .strip-viewport{
-    overflow:hidden; flex:1;
-    cursor:grab;
-  }
+  .strip-outer{ position:relative; display:flex; align-items:center; margin:0 0 24px; }
+  .strip-viewport{ overflow:hidden; flex:1; cursor:grab; }
   .strip-viewport:active{cursor:grabbing;}
-  .strip-track{
-    display:flex; gap:12px;
-    will-change:transform;
-  }
-  .strip-slide{
-    flex:none; width:300px; height:260px;
-    border-radius:4px; overflow:hidden;
-    background:rgba(255,255,255,0.07);
-  }
-  .strip-slide img{
-    width:100%; height:100%; object-fit:cover; display:block;
-  }
+  .strip-track{ display:flex; gap:12px; will-change:transform; }
+  .strip-slide{ flex:none; width:300px; height:260px; border-radius:4px; overflow:hidden; background:rgba(255,255,255,0.07); }
+  .strip-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
   .strip-btn{
     flex:none; width:44px; height:44px;
     background:var(--clay); border:none; border-radius:50%;
@@ -376,19 +330,41 @@
   .strip-btn:hover{background:var(--clay-deep);}
   .strip-btn-left{margin-right:12px;}
   .strip-btn-right{margin-left:12px;}
-  .gallery-note{
-    text-align:center; font-size:0.88rem; opacity:0.6;
-    font-family:'JetBrains Mono',monospace; margin-top:8px;
-  }
+  .gallery-note{ text-align:center; font-size:0.88rem; opacity:0.6; font-family:'JetBrains Mono',monospace; margin-top:8px; }
 
-  /* ---------- CALENDAR COLOURS (three-tier) ---------- */
+  /* ---------- CALENDAR COLOURS ---------- */
   .date-cell.status-free{background:#E8F5EE; border-color:#B8DEC9;}
   .date-cell.status-busy{background:#FEF3E2; border-color:#F5CC80;}
   .date-cell.status-full{background:#FAEAE4; border-color:#E8B49A;}
+  .date-cell.status-away{background:#EEE8F5; border-color:#C9B8DE;}
   .date-cell.past{opacity:0.38; pointer-events:none;}
   .status-free .dot{background:#4A9B6F;}
   .status-busy .dot{background:#E8A020;}
   .status-full .dot{background:#C4622D;}
+  .status-away .dot{background:#7B5EA7;}
+
+  /* clickable free/busy days */
+  .date-cell.clickable{cursor:pointer; transition:transform .15s, box-shadow .15s;}
+  .date-cell.clickable:hover{transform:scale(1.08); box-shadow:0 4px 12px rgba(0,0,0,0.13); z-index:2; position:relative;}
+  .date-cell.selected{box-shadow:inset 0 0 0 2px var(--clay) !important; font-weight:600;}
+
+  /* small tooltip on hover */
+  .date-cell.clickable::after{
+    content: attr(data-tip);
+    position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%);
+    background:var(--ink); color:var(--paper);
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    padding:4px 8px; border-radius:3px; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .15s;
+    z-index:10;
+  }
+  .date-cell.clickable:hover::after{opacity:1;}
+
+  /* date picker hint under calendar */
+  .cal-pick-hint{
+    padding:10px 24px 0; font-family:'JetBrains Mono',monospace; font-size:0.78rem;
+    color:var(--clay-deep); min-height:1.4em;
+  }
 
   /* reveal-on-scroll */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
@@ -400,13 +376,25 @@
 <header>
   <nav class="nav wrap" style="padding-left:0; padding-right:0;">
     <a href="#top" class="brand">
-      <svg class="mark" viewBox="0 0 32 32" fill="none">
-        <path d="M9 12 C9 7, 13 4, 16 4 C19 4, 23 7, 23 12 L24 20 C24 25, 20 28, 16 28 C12 28, 8 25, 8 20 Z" fill="#C97D5D"/>
-        <path d="M9 12 L6 6 L11 9 Z" fill="#C97D5D"/>
-        <path d="M23 12 L26 6 L21 9 Z" fill="#C97D5D"/>
-        <circle cx="13" cy="15" r="1.3" fill="#1F2E27"/>
-        <circle cx="19" cy="15" r="1.3" fill="#1F2E27"/>
-        <path d="M14.5 19 Q16 20.3 17.5 19" stroke="#1F2E27" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <!-- NEW LOGO -->
+      <svg class="mark" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <ellipse fill="#C4622D" cx="250" cy="290" rx="72" ry="62"/>
+        <path fill="none" stroke="#FBF6F0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"
+          d="M181,288 Q179,230 250,228 Q321,230 319,288 Q321,350 250,354 Q179,350 181,288 Z"/>
+        <ellipse fill="#E8A87C" cx="250" cy="290" rx="52" ry="44"/>
+        <path fill="#FBF6F0" d="M250,279 C250,279 237,268 230,274 C223,280 230,291 250,304 C270,291 277,280 270,274 C263,268 250,279 250,279 Z"/>
+        <ellipse fill="#C4622D" cx="162" cy="205" rx="24" ry="29" transform="rotate(-20 162 205)"/>
+        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
+          d="M141,201 Q140,179 162,176 Q184,179 183,201 Q184,225 162,227 Q140,225 141,201 Z"/>
+        <ellipse fill="#C4622D" cx="207" cy="179" rx="22" ry="27" transform="rotate(-7 207 179)"/>
+        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
+          d="M187,177 Q186,154 207,151 Q228,154 227,177 Q228,202 207,204 Q186,202 187,177 Z"/>
+        <ellipse fill="#C4622D" cx="293" cy="179" rx="22" ry="27" transform="rotate(7 293 179)"/>
+        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
+          d="M273,177 Q272,154 293,151 Q314,154 313,177 Q314,202 293,204 Q272,202 273,177 Z"/>
+        <ellipse fill="#C4622D" cx="338" cy="205" rx="24" ry="29" transform="rotate(20 338 205)"/>
+        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
+          d="M317,201 Q316,179 338,176 Q360,179 359,201 Q360,225 338,227 Q316,225 317,201 Z"/>
       </svg>
       Elena's Happy Paws
     </a>
@@ -430,7 +418,7 @@
     <div class="wrap hero-inner">
       <div>
         <span class="eyebrow">Currently taking bookings · Amersfoort, Netherlands</span>
-        <h1>Happy pets,<br><em>happy owners</em> <br>while you're away,<br>they're in good hands.</h1>
+        <h1>Happy pets,<br><em>happy owners</em> —<br>while you're away,<br>they're in good hands.</h1>
         <p class="lede">Cats, dogs, rabbits, fish, chickens, and more. Daily visits, dog walks, overnight stays, and medication care. Every pet known by name and habit, every visit logged.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Check availability →</a>
@@ -441,10 +429,10 @@
         <div class="logbook-peek">
           <div class="lp-head">
             <strong>Visit Log — Today</strong>
-            <span>Tue, Jun 23</span>
+            <span id="logbook-date"></span>
           </div>
           <div class="lp-row"><span class="lp-time">8:10 AM</span><span class="lp-note">Fed, fresh water, litter scooped</span><span class="lp-tag">Milo 🐱</span></div>
-          <div class="lp-row"><span class="lp-time">9:30 AM</span><span class="lp-note">45 min walk, happy & tired after</span><span class="lp-tag">Biscuit 🐶</span></div>
+          <div class="lp-row"><span class="lp-time">9:30 AM</span><span class="lp-note">45 min walk, happy &amp; tired after</span><span class="lp-tag">Biscuit 🐶</span></div>
           <div class="lp-row"><span class="lp-time">1:40 PM</span><span class="lp-note">Pellets, hay topped up, cage cleaned</span><span class="lp-tag">Coco 🐇</span></div>
         </div>
       </div>
@@ -452,7 +440,7 @@
     <div class="wrap hero-strip" style="padding:0;">
       <div class="hs-item"><b>5 yrs</b>experience</div>
       <div class="hs-item"><b>5.0 ⭐</b>on Rover · 13 reviews</div>
-      <div class="hs-item"><b>daily</b>photos & videos</div>
+      <div class="hs-item"><b>daily</b>photos &amp; videos</div>
       <div class="hs-item"><b>&lt;1 hr</b>response time</div>
     </div>
   </div>
@@ -463,19 +451,19 @@
       <div class="section-head reveal">
         <span class="section-label">What I offer</span>
         <h2>Care for every pet, in their own home</h2>
-        <p>Cats, dogs, rabbits, fish, hamsters, chickens, and more every animal cared for in their own space, on their own schedule, with someone who actually pays attention.</p>
+        <p>Cats, dogs, rabbits, fish, hamsters, chickens, and more — every animal cared for in their own space, on their own schedule, with someone who actually pays attention.</p>
       </div>
       <div class="service-grid reveal">
         <div class="service-card">
           <div class="entry-no">ENTRY / 01</div>
           <h3>Cat sitting</h3>
-          <p>Drop-in visits or overnight stays for cats. Feeding, litter, fresh water, and company on their terms, no rush, no strangers' smells.</p>
+          <p>Drop-in visits or overnight stays for cats. Feeding, litter, fresh water, and company on their terms — no rush, no strangers' smells.</p>
           <div class="service-price">from €16 / visit · €55 / night</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 02</div>
-          <h3>Dog walks & care</h3>
-          <p>30 or 60 minute walks, feeding, and home visits for dogs. Solo walks so your dog gets full attention, not lost in a group.</p>
+          <h3>Dog walks &amp; care</h3>
+          <p>30 or 60-minute walks, feeding, and home visits for dogs. Solo walks so your dog gets full attention — not lost in a group.</p>
           <div class="service-price">from €12 / walk · €20 / visit</div>
         </div>
         <div class="service-card">
@@ -486,37 +474,37 @@
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 04</div>
-          <h3>Fish & aquariums</h3>
-          <p>Feeding on schedule, water top-ups, filter checks, and a visual health check. Great as an add on to any other visit.</p>
+          <h3>Fish &amp; aquariums</h3>
+          <p>Feeding on schedule, water top-ups, filter checks, and a visual health check. Great as an add-on to any other visit.</p>
           <div class="service-price">from €5 / visit</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 05</div>
-          <h3>Chickens & backyard birds</h3>
+          <h3>Chickens &amp; backyard birds</h3>
           <p>Opening and closing the coop, feeding, water refill, egg collection, and a welfare check. Morning and evening visits available.</p>
           <div class="service-price">from €10 / visit</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 06</div>
-          <h3>Medication & senior care</h3>
-          <p>Pills, insulin, subcutaneous fluids, mobility support, for any species. Routines that need precision and patience are welcome.</p>
+          <h3>Medication &amp; senior care</h3>
+          <p>Pills, insulin, subcutaneous fluids, mobility support — for any species. Routines that need precision and patience are welcome.</p>
           <div class="service-price">from €22 / visit</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 07</div>
-        <h3>Twice-Daily Visits</h3>
-        <p>Perfect for pets who need morning and evening care. Two visits per day for feeding, fresh water, walks (if needed), playtime, and plenty of attention.</p>
-        <div class="service-price">from €25 / day</div>
+          <h3>Twice-daily visits</h3>
+          <p>Perfect for pets who need morning and evening care. Two visits per day for feeding, fresh water, walks (if needed), playtime, and plenty of attention.</p>
+          <div class="service-price">from €25 / day</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 08</div>
-          <h3>Plant & home care</h3>
-          <p>Perfect if you just need watering, mail pickup, rotating lights and blinds so the house looks lived-in while you're away.</p>
+          <h3>Plant &amp; home care</h3>
+          <p>Added to any visit — watering, mail pickup, rotating lights and blinds so the house looks lived-in while you're away.</p>
           <div class="service-price">€4 / visit</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 09</div>
-          <h3>Meet & greet</h3>
+          <h3>Meet &amp; greet</h3>
           <p>A free first meeting before any booking — for your pets to get used to me, and for us to go over routines and any special needs.</p>
           <div class="service-price">no charge</div>
         </div>
@@ -538,10 +526,33 @@
       </div>
       <div class="about-body reveal">
         <span class="section-label">About</span>
-        <p>"I believe every pet deserves to feel safe, happy, and loved especially when their owner is away."</p>
+
+        <!-- ================================================
+             YOUR PHOTO GOES HERE
+             1. Upload your photo to your GitHub repo /images folder
+             2. Name it: elena.jpg
+             3. The placeholder below will be replaced by your real photo automatically
+             ================================================ -->
+        <div class="profile-photo-wrap">
+          <img
+            src="images/elena.jpg"
+            alt="Elena — Elena's Happy Paws"
+            class="profile-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="profile-photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="18" r="10" stroke="#B8956A" stroke-width="2"/>
+              <path d="M6 42 C6 32 42 32 42 42" stroke="#B8956A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Upload <strong>images/elena.jpg</strong><br>to your GitHub repo<br>to show your photo here</span>
+          </div>
+        </div>
+
+        <p>"I believe every pet deserves to feel safe, happy, and loved — especially when their owner is away."</p>
         <p>My name is Elena, and I've always been passionate about animals and the unique personalities that make each one so special. A few years ago I became the happy parent of Arya, my cat, and caring for her made me realise how much I love truly understanding an animal's individual needs, routines, and preferences.</p>
-        <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
-        <p>Every visit comes with photos and videos so you're never left wondering. If something seems off appetite, behaviour, energy you hear about it the same day, not when you get home.</p>
+        <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends — so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
+        <p>Every visit comes with photos and videos so you're never left wondering. If something seems off — appetite, behaviour, energy — you hear about it the same day, not when you get home.</p>
       </div>
     </div>
   </section>
@@ -554,29 +565,30 @@
         <h2 style="color:var(--paper);">Current availability</h2>
         <p style="opacity:0.75;">A general view of open and booked days. Exact visit times are confirmed once you reach out — this shows day-level availability only.</p>
       </div>
-
       <div class="cal-card reveal">
         <div class="cal-top">
-          <h3 id="cal-month-label">June 2026</h3>
+          <h3 id="cal-month-label"></h3>
           <div class="cal-nav">
             <button id="cal-prev" aria-label="Previous month">←</button>
-            <span id="cal-today-label">Today: Jun 23</span>
+            <span id="cal-today-label"></span>
             <button id="cal-next" aria-label="Next month">→</button>
           </div>
         </div>
         <div class="cal-legend">
-          <div class="leg-item"><span class="leg-dot" style="background:#4A9B6F;"></span> Free</div>
-          <div class="leg-item"><span class="leg-dot" style="background:#E8A020;"></span> Busy</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#4A9B6F;"></span> Free — click to book</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#E8A020;"></span> Busy — limited spots</div>
           <div class="leg-item"><span class="leg-dot" style="background:#C4622D;"></span> Fully booked</div>
+          <div class="leg-item"><span class="leg-dot" style="background:#7B5EA7;"></span> Away</div>
           <div class="leg-item"><span class="leg-dot" style="background:transparent; border:2px solid var(--ochre); width:5px; height:5px;"></span> Today</div>
         </div>
+        <div class="cal-pick-hint" id="cal-pick-hint">👆 Tap a green or orange day to pre-fill your booking dates</div>
         <div class="grid-days">
           <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
         </div>
         <div class="grid-dates" id="cal-grid"></div>
         <div class="cal-foot">
           <span>Booked days fill quickly around holidays — reach out early.</span>
-          <span id="cal-open-count">— open days this month</span>
+          <span id="cal-open-count"></span>
         </div>
       </div>
     </div>
@@ -623,10 +635,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="section-label">Pet clients</span>
-        <h2>Meet some of the animals</h2>
-        <h2>I've cared for</h2>
-        <p>Real photos from real visits, shared with permission from their humans.</p>
-        <p>Two visits in, and every pet was already completely settled in. </p>
+        <h2>Meet some of the animals I've cared for</h2>
+        <p>Real photos from real visits, shared with permission from their humans. Two visits in, and every pet was already completely settled in.</p>
       </div>
     </div>
     <div class="strip-outer reveal">
@@ -635,19 +645,18 @@
         <div class="strip-track" id="stripTrack">
           <!-- =====================================================
                ADD YOUR PHOTOS HERE
-               Replace the src with your image paths, e.g:
-               src="images/cat1.jpg"
-               Add as many <div class="strip-slide"> blocks as you want
+               Upload photos to your GitHub /images folder
+               named pet1.jpg, pet2.jpg ... pet25.jpg
           ====================================================== -->
-          <div class="strip-slide"><img src="images/pet1.jpg" alt="Pet photo 1" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet2.jpg" alt="Pet photo 2" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet3.jpg" alt="Pet photo 3" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet4.jpg" alt="Pet photo 4" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet5.jpg" alt="Pet photo 5" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet6.jpg" alt="Pet photo 6" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet7.jpg" alt="Pet photo 7" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet8.jpg" alt="Pet photo 8" onerror="this.closest('.strip-slide').style.display='none'"></div>
-          <div class="strip-slide"><img src="images/pet9.jpg" alt="Pet photo 9" onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet1.jpg"  alt="Pet photo 1"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet2.jpg"  alt="Pet photo 2"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet3.jpg"  alt="Pet photo 3"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet4.jpg"  alt="Pet photo 4"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet5.jpg"  alt="Pet photo 5"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet6.jpg"  alt="Pet photo 6"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet7.jpg"  alt="Pet photo 7"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet8.jpg"  alt="Pet photo 8"  onerror="this.closest('.strip-slide').style.display='none'"></div>
+          <div class="strip-slide"><img src="images/pet9.jpg"  alt="Pet photo 9"  onerror="this.closest('.strip-slide').style.display='none'"></div>
           <div class="strip-slide"><img src="images/pet10.jpg" alt="Pet photo 10" onerror="this.closest('.strip-slide').style.display='none'"></div>
           <div class="strip-slide"><img src="images/pet11.jpg" alt="Pet photo 11" onerror="this.closest('.strip-slide').style.display='none'"></div>
           <div class="strip-slide"><img src="images/pet12.jpg" alt="Pet photo 12" onerror="this.closest('.strip-slide').style.display='none'"></div>
@@ -669,7 +678,7 @@
       <button class="strip-btn strip-btn-right" id="stripNext" aria-label="Next photos">→</button>
     </div>
     <div class="wrap">
-      <p class="gallery-note reveal">Want to add your pet to this wall? They’ll fit right in  🐾</p>
+      <p class="gallery-note reveal">Want to add your pet to this wall? They'll fit right in 🐾</p>
     </div>
   </section>
 
@@ -682,41 +691,44 @@
         <p>Share your dates and a bit about your pet's routine. I'll confirm availability and follow up within an hour.</p>
       </div>
       <div class="contact-grid">
-        <form class="reveal" id="contact-form" action="https://formspree.io/f/mwvdazga" method="POST">
+        <form class="reveal" id="contact-form">
           <div class="field-row">
             <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" required>
+              <label for="fname">Your name</label>
+              <input id="fname" name="name" type="text" required>
             </div>
             <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required>
+              <label for="femail">Email</label>
+              <input id="femail" name="email" type="email" required>
             </div>
           </div>
           <div class="field-row">
             <div>
-              <label for="dates">Dates needed</label>
-              <input id="dates" name="dates" type="text" placeholder="e.g. Jul 4 – Jul 9">
+              <label for="fdates">Dates needed</label>
+              <input id="fdates" name="dates" type="text" placeholder="e.g. Jul 4 – Jul 9">
             </div>
             <div>
-              <label for="service">Service</label>
-              <select id="service" name="service">
-                <option>Drop-in visits</option>
-                <option>Overnight stays</option>
-                <option>Medication & senior care</option>
+              <label for="fservice">Service</label>
+              <select id="fservice" name="service">
+                <option>Cat sitting</option>
+                <option>Dog walks &amp; care</option>
+                <option>Small pets</option>
+                <option>Fish &amp; aquariums</option>
+                <option>Chickens &amp; backyard birds</option>
+                <option>Medication &amp; senior care</option>
+                <option>Twice-daily visits</option>
                 <option>Multi-pet household</option>
                 <option>Not sure yet</option>
               </select>
             </div>
           </div>
           <div>
-            <label for="message">About your pet</label>
-            <textarea id="message" name="message" placeholder="Name, species, age, routine, anything I should know"></textarea>
+            <label for="fmessage">About your pet</label>
+            <textarea id="fmessage" name="message" placeholder="Name, species, age, routine, anything I should know"></textarea>
           </div>
-          <button type="submit" class="submit-btn">Send inquiry</button>
+          <button type="submit" class="submit-btn" id="submit-btn">Send inquiry</button>
           <p class="form-status" id="form-status"></p>
         </form>
-
         <div class="contact-info reveal">
           <div class="ci-row"><span>Email</span>hello@elenashappypaws.com</div>
           <div class="ci-row"><span>Also on</span><a href="https://www.rover.com/members/elena-k-trusted-by-cats-approved-by-dogs/" target="_blank" rel="noopener" style="color:var(--clay-deep);">Rover.com profile →</a></div>
@@ -732,8 +744,8 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <p>Elena's Happy Paws — Pet Sitting & Dog Walking</p>
-    <p>© 2026 - Build by Elena Kane</p>
+    <p>Elena's Happy Paws — Pet Sitting &amp; Dog Walking</p>
+    <p>© 2026 · Built by Elena Kane</p>
   </div>
 </footer>
 
@@ -745,68 +757,43 @@
   }, {threshold:0.12});
   revealEls.forEach(el => io.observe(el));
 
+  // ---- Live date in logbook card ----
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const now = new Date();
+  document.getElementById('logbook-date').textContent =
+    days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
+
   // ================================================================
   // CALENDAR — edit your availability here
-  // Format: "YYYY-MM-DD": "free" | "busy" | "full"
-  //   free = green  (available all day)
-  //   busy = orange (some slots taken, still bookable)
-  //   full = red    (fully booked, not available)
+  // Format: "YYYY-MM-DD": "free" | "busy" | "full" | "away"
+  //   free  = green  (available, clients can click to book)
+  //   busy  = orange (some slots taken, still bookable)
+  //   full  = red    (fully booked, not available)
+  //   away  = purple (you're travelling, not available at all)
   // Days not listed default to "free"
   // ================================================================
   const SCHEDULE = {
-
-    "2026-07-01": "busy",
-    "2026-07-02": "busy",
-    "2026-07-03": "busy",
-    "2026-07-04": "busy",
-    "2026-07-05": "busy",
-    "2026-07-06": "busy",
-    "2026-07-07": "busy",
-    "2026-07-08": "busy",
-
-    "2026-07-09": "full",
-    "2026-07-10": "full",
-    "2026-07-11": "full",
-    "2026-07-12": "full",
-    "2026-07-13": "full",
-    "2026-07-14": "full",
-    "2026-07-15": "full",
-    "2026-07-16": "full",
-    "2026-07-17": "full",
-    "2026-07-18": "full",
-    "2026-07-19": "full",
-    "2026-07-20": "full",
-    "2026-07-21": "full",
-    "2026-07-22": "full",
-    "2026-07-23": "full",
-    "2026-07-24": "busy",
-
-    "2026-07-26": "busy",
-    "2026-07-27": "busy",
-    "2026-07-28": "busy",
-    "2026-07-29": "busy",
-    "2026-07-30": "full",
-    "2026-07-31": "busy",
-    "2026-08-01": "busy",
-    "2026-08-02": "full",
+    "2026-07-01": "busy", "2026-07-02": "busy", "2026-07-03": "busy",
+    "2026-07-04": "busy", "2026-07-05": "busy", "2026-07-06": "busy",
+    "2026-07-07": "busy", "2026-07-08": "busy",
+    "2026-07-09": "full", "2026-07-10": "full", "2026-07-11": "full",
+    "2026-07-12": "full", "2026-07-13": "full", "2026-07-14": "full",
+    "2026-07-15": "full", "2026-07-16": "full", "2026-07-17": "full",
+    "2026-07-18": "full", "2026-07-19": "full", "2026-07-20": "full",
+    "2026-07-21": "full", "2026-07-22": "full", "2026-07-23": "full",
+    "2026-07-24": "busy", "2026-07-26": "busy", "2026-07-27": "busy",
+    "2026-07-28": "busy", "2026-07-29": "busy", "2026-07-30": "full",
+    "2026-07-31": "busy", "2026-08-01": "busy", "2026-08-02": "full",
     "2026-08-03": "full",
-
-
-    "2026-08-12": "busy", 
-    "2026-08-13": "busy",
-    "2026-08-14": "busy",
-    "2026-08-15": "busy",
-    "2026-08-16": "busy",
-    "2026-08-17": "busy",
-    "2026-08-18": "busy",
-    "2026-08-19": "busy",
-    "2026-08-20": "busy",
-    "2026-08-21": "busy",
-    "2026-08-22": "busy",
-    "2026-08-23": "busy",
-    "2026-08-24": "busy",
-    "2026-08-25": "busy",
-    "2026-08-26": "busy",
+    // Away — Elena is travelling, not available at all
+    "2026-08-04": "away", "2026-08-05": "away", "2026-08-06": "away",
+    "2026-08-07": "away", "2026-08-08": "away", "2026-08-09": "away",
+    "2026-08-10": "away", "2026-08-11": "away",
+    "2026-08-15": "busy", "2026-08-16": "busy", "2026-08-17": "busy",
+    "2026-08-18": "busy", "2026-08-19": "busy", "2026-08-20": "busy",
+    "2026-08-21": "busy", "2026-08-22": "busy", "2026-08-23": "busy",
+    "2026-08-24": "busy", "2026-08-25": "busy", "2026-08-26": "busy",
     "2026-08-27": "busy",
   };
 
@@ -814,69 +801,179 @@
   let viewYear = TODAY.getFullYear();
   let viewMonth = TODAY.getMonth();
   const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const monthShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
   function pad(n){ return String(n).padStart(2,'0'); }
+
+  // Date selection state
+  let pickStart = null, pickEnd = null;
+
+  function dateKey(y,m,d){ return `${y}-${pad(m+1)}-${pad(d)}`; }
+  function friendlyDate(y,m,d){ return `${d} ${monthShort[m]} ${y}`; }
+  function isBookable(status){ return status === 'free' || status === 'busy'; }
+
+  function updateFormDates(){
+    const field = document.getElementById('fdates');
+    if(!field) return;
+    if(pickStart && pickEnd){
+      const [sy,sm,sd] = pickStart.split('-').map(Number);
+      const [ey,em,ed] = pickEnd.split('-').map(Number);
+      field.value = `${friendlyDate(sy,sm-1,sd)} – ${friendlyDate(ey,em-1,ed)}`;
+    } else if(pickStart){
+      const [sy,sm,sd] = pickStart.split('-').map(Number);
+      field.value = friendlyDate(sy,sm-1,sd);
+    }
+  }
+
+  function updateHint(){
+    const hint = document.getElementById('cal-pick-hint');
+    if(!hint) return;
+    if(!pickStart){
+      hint.textContent = '👆 Tap a green or orange day to pre-fill your booking dates';
+    } else if(!pickEnd){
+      hint.textContent = '✅ Start date selected — now tap an end date (or tap the same day for a single day)';
+    } else {
+      const [sy,sm,sd] = pickStart.split('-').map(Number);
+      const [ey,em,ed] = pickEnd.split('-').map(Number);
+      hint.innerHTML = `📅 ${friendlyDate(sy,sm-1,sd)} – ${friendlyDate(ey,em-1,ed)} selected &nbsp;·&nbsp; <a href="#contact" style="color:var(--clay-deep); text-decoration:underline;">Go to form →</a>`;
+    }
+  }
 
   function renderCalendar(){
     const grid = document.getElementById('cal-grid');
     grid.innerHTML = '';
     document.getElementById('cal-month-label').textContent = monthNames[viewMonth] + ' ' + viewYear;
-
     const firstDay = new Date(viewYear, viewMonth, 1).getDay();
     const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
     for(let i=0; i<firstDay; i++){
-      const e = document.createElement('div');
-      e.className = 'date-cell empty';
-      grid.appendChild(e);
+      const e = document.createElement('div'); e.className='date-cell empty'; grid.appendChild(e);
     }
 
     let freeCount = 0;
     for(let d=1; d<=daysInMonth; d++){
-      const key = `${viewYear}-${pad(viewMonth+1)}-${pad(d)}`;
+      const key = dateKey(viewYear, viewMonth, d);
       const status = SCHEDULE[key] || 'free';
-      if(status === 'free') freeCount++;
+      if(status==='free') freeCount++;
 
       const cell = document.createElement('div');
       cell.className = 'date-cell status-' + status;
 
-      const isToday = (viewYear === TODAY.getFullYear() && viewMonth === TODAY.getMonth() && d === TODAY.getDate());
+      const isToday = (viewYear===TODAY.getFullYear() && viewMonth===TODAY.getMonth() && d===TODAY.getDate());
       if(isToday) cell.classList.add('today');
 
-      const isPast = new Date(viewYear, viewMonth, d) < new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate());
-      if(isPast) cell.classList.add('past');
+      const isPast = new Date(viewYear,viewMonth,d) < new Date(TODAY.getFullYear(),TODAY.getMonth(),TODAY.getDate());
+      if(isPast){
+        cell.classList.add('past');
+      } else if(isBookable(status)){
+        cell.classList.add('clickable');
+        cell.setAttribute('data-key', key);
+        cell.setAttribute('data-tip', status === 'busy' ? 'Limited spots' : 'Available');
+
+        // highlight if selected
+        if(pickStart && pickEnd){
+          const cellDate = new Date(viewYear, viewMonth, d);
+          const [sy,sm,sd] = pickStart.split('-').map(Number);
+          const [ey,em,ed] = pickEnd.split('-').map(Number);
+          const start = new Date(sy, sm-1, sd);
+          const end = new Date(ey, em-1, ed);
+          if(cellDate >= start && cellDate <= end) cell.classList.add('selected');
+        } else if(pickStart === key){
+          cell.classList.add('selected');
+        }
+
+        cell.addEventListener('click', () => {
+          if(!pickStart || (pickStart && pickEnd)){
+            // fresh start
+            pickStart = key; pickEnd = null;
+          } else {
+            // picking end date
+            if(key < pickStart){
+              pickEnd = pickStart; pickStart = key;
+            } else {
+              pickEnd = key;
+            }
+          }
+          updateFormDates();
+          updateHint();
+          renderCalendar();
+          // scroll to form if both dates picked
+          if(pickStart && pickEnd){
+            setTimeout(()=>{
+              document.getElementById('contact').scrollIntoView({behavior:'smooth', block:'start'});
+            }, 400);
+          }
+        });
+      }
 
       cell.innerHTML = d + '<span class="dot"></span>';
       grid.appendChild(cell);
     }
-
     document.getElementById('cal-open-count').textContent = freeCount + ' open day' + (freeCount===1?'':'s') + ' this month';
   }
 
   document.getElementById('cal-today-label').textContent = 'Today: ' + monthNames[TODAY.getMonth()].slice(0,3) + ' ' + TODAY.getDate();
-
-  document.getElementById('cal-prev').addEventListener('click', () => {
-    viewMonth--; if(viewMonth < 0){ viewMonth = 11; viewYear--; }
-    renderCalendar();
-  });
-  document.getElementById('cal-next').addEventListener('click', () => {
-    viewMonth++; if(viewMonth > 11){ viewMonth = 0; viewYear++; }
-    renderCalendar();
-  });
-
+  document.getElementById('cal-prev').addEventListener('click', () => { viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} renderCalendar(); });
+  document.getElementById('cal-next').addEventListener('click', () => { viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} renderCalendar(); });
   renderCalendar();
 
-  // ---- Contact form — handled by Formspree ----
+  // ================================================================
+  // CONTACT FORM — sends to Formspree (email) + Vercel (Telegram)
+  // ================================================================
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
 
-  // ================================================================
-  // PHOTO STRIP — auto-scroll + arrow controls
-  // ================================================================
+    const data = {
+      name:    document.getElementById('fname').value,
+      email:   document.getElementById('femail').value,
+      dates:   document.getElementById('fdates').value,
+      service: document.getElementById('fservice').value,
+      message: document.getElementById('fmessage').value,
+    };
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    status.textContent = '';
+
+    try {
+      // Send both in parallel
+      const [formspreeRes] = await Promise.all([
+        // Formspree — delivers email to you
+        fetch('https://formspree.io/f/mwvdazga', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data),
+        }),
+        // Vercel function — fires Telegram notification
+        fetch('/api/notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        }),
+      ]);
+
+      if (formspreeRes.ok) {
+        status.style.color = '#4A9B6F';
+        status.textContent = '✅ Inquiry sent! I\'ll get back to you within an hour.';
+        this.reset();
+      } else {
+        throw new Error('Formspree error');
+      }
+    } catch (err) {
+      status.style.color = 'var(--clay-deep)';
+      status.textContent = '❌ Something went wrong — please try again or email me directly.';
+    } finally {
+      btn.textContent = 'Send inquiry';
+      btn.disabled = false;
+    }
+  });
+
   const track = document.getElementById('stripTrack');
   const viewport = document.getElementById('stripViewport');
-  const SLIDE_W = 300 + 12; // card width + gap
-  let offset = 0;
-  let autoTimer;
-  let isPaused = false;
+  const SLIDE_W = 300 + 12;
+  let offset = 0, autoTimer, isPaused = false;
 
   function cloneSlides(){
     const slides = [...track.querySelectorAll('.strip-slide')];
@@ -888,29 +985,20 @@
     track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
     track.style.transform = `translateX(${-x}px)`;
   }
-
-  function getMaxOffset(){
-    return (track.querySelectorAll('.strip-slide').length / 2) * SLIDE_W;
-  }
-
+  function getMaxOffset(){ return (track.querySelectorAll('.strip-slide').length / 2) * SLIDE_W; }
   function advance(dir){
     offset += dir * SLIDE_W;
     const max = getMaxOffset();
-    if(offset >= max) { moveTo(max, false); offset = 0; setTimeout(()=>moveTo(0, false), 20); return; }
-    if(offset < 0) { offset = max - SLIDE_W; moveTo(offset, false); return; }
+    if(offset >= max){ moveTo(max,false); offset=0; setTimeout(()=>moveTo(0,false),20); return; }
+    if(offset < 0){ offset=max-SLIDE_W; moveTo(offset,false); return; }
     moveTo(offset, true);
   }
+  function startAuto(){ autoTimer = setInterval(()=>{ if(!isPaused) advance(1); }, 3200); }
 
-  function startAuto(){
-    autoTimer = setInterval(() => { if(!isPaused) advance(1); }, 3200);
-  }
-
-  document.getElementById('stripPrev').addEventListener('click', () => { advance(-1); isPaused = true; clearInterval(autoTimer); setTimeout(()=>{ isPaused = false; startAuto(); }, 6000); });
-  document.getElementById('stripNext').addEventListener('click', () => { advance(1);  isPaused = true; clearInterval(autoTimer); setTimeout(()=>{ isPaused = false; startAuto(); }, 6000); });
-
-  viewport.addEventListener('mouseenter', () => isPaused = true);
-  viewport.addEventListener('mouseleave', () => isPaused = false);
-
+  document.getElementById('stripPrev').addEventListener('click', ()=>{ advance(-1); isPaused=true; clearInterval(autoTimer); setTimeout(()=>{ isPaused=false; startAuto(); },6000); });
+  document.getElementById('stripNext').addEventListener('click', ()=>{ advance(1);  isPaused=true; clearInterval(autoTimer); setTimeout(()=>{ isPaused=false; startAuto(); },6000); });
+  viewport.addEventListener('mouseenter', ()=> isPaused=true);
+  viewport.addEventListener('mouseleave', ()=> isPaused=false);
   moveTo(0, false);
   startAuto();
 </script>
