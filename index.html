@@ -55,7 +55,7 @@
     color:var(--paper); text-decoration:none;
     letter-spacing:-0.01em;
   }
-  .brand .mark{ width:34px; height:34px; flex:none; }
+  .brand .mark{ width:56px; height:34px; flex:none; }
   .navlinks{display:flex; gap:30px; list-style:none; font-size:0.92rem;}
   .navlinks a{text-decoration:none; color:var(--paper); opacity:0.78; transition:opacity .2s;}
   .navlinks a:hover{opacity:1;}
@@ -177,8 +177,9 @@
   }
 
   /* ---------- ABOUT ---------- */
-  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;}
-  @media (max-width:800px){.about-grid{grid-template-columns:1fr; gap:32px;}}
+  .about-grid{display:grid; grid-template-columns:220px 1fr 1.4fr; gap:36px; align-items:start;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr 1fr; gap:28px;}}
+  @media (max-width:600px){.about-grid{grid-template-columns:1fr; gap:24px;}}
   .about-card{
     background:var(--ink); color:var(--paper); border-radius:4px;
     padding:28px; font-family:'JetBrains Mono', monospace; font-size:0.84rem;
@@ -192,24 +193,22 @@
 
   /* Profile photo */
   .profile-photo-wrap{
-    margin-bottom:22px;
-    position:relative; display:inline-block;
+    position:relative; display:block; width:100%;
   }
   .profile-photo{
-    width:100%; max-width:320px;
-    border-radius:4px; display:block;
+    width:100%; border-radius:4px; display:block;
     border:3px solid var(--paper-deep);
     box-shadow: 4px 4px 0 var(--clay);
-    object-fit:cover; aspect-ratio:4/5;
+    object-fit:cover; aspect-ratio:3/4;
     background:var(--paper-deep);
   }
   .profile-photo-placeholder{
-    width:100%; max-width:320px; aspect-ratio:4/5;
+    width:100%; aspect-ratio:3/4;
     border-radius:4px; border:2px dashed var(--line);
     background:var(--paper-deep);
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:10px; color:var(--sage); font-family:'JetBrains Mono',monospace; font-size:0.8rem;
-    text-align:center; padding:20px;
+    gap:10px; color:var(--sage); font-family:'JetBrains Mono',monospace; font-size:0.75rem;
+    text-align:center; padding:16px;
   }
   .profile-photo-placeholder svg{ opacity:0.4; }
 
@@ -376,25 +375,45 @@
 <header>
   <nav class="nav wrap" style="padding-left:0; padding-right:0;">
     <a href="#top" class="brand">
-      <!-- NEW LOGO -->
-      <svg class="mark" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <ellipse fill="#C4622D" cx="250" cy="290" rx="72" ry="62"/>
-        <path fill="none" stroke="#FBF6F0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"
-          d="M181,288 Q179,230 250,228 Q321,230 319,288 Q321,350 250,354 Q179,350 181,288 Z"/>
-        <ellipse fill="#E8A87C" cx="250" cy="290" rx="52" ry="44"/>
-        <path fill="#FBF6F0" d="M250,279 C250,279 237,268 230,274 C223,280 230,291 250,304 C270,291 277,280 270,274 C263,268 250,279 250,279 Z"/>
-        <ellipse fill="#C4622D" cx="162" cy="205" rx="24" ry="29" transform="rotate(-20 162 205)"/>
-        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
-          d="M141,201 Q140,179 162,176 Q184,179 183,201 Q184,225 162,227 Q140,225 141,201 Z"/>
-        <ellipse fill="#C4622D" cx="207" cy="179" rx="22" ry="27" transform="rotate(-7 207 179)"/>
-        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
-          d="M187,177 Q186,154 207,151 Q228,154 227,177 Q228,202 207,204 Q186,202 187,177 Z"/>
-        <ellipse fill="#C4622D" cx="293" cy="179" rx="22" ry="27" transform="rotate(7 293 179)"/>
-        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
-          d="M273,177 Q272,154 293,151 Q314,154 313,177 Q314,202 293,204 Q272,202 273,177 Z"/>
-        <ellipse fill="#C4622D" cx="338" cy="205" rx="24" ry="29" transform="rotate(20 338 205)"/>
-        <path fill="none" stroke="#FBF6F0" stroke-width="2" stroke-dasharray="4,2.5"
-          d="M317,201 Q316,179 338,176 Q360,179 359,201 Q360,225 338,227 Q316,225 317,201 Z"/>
+      <!-- CAT + DOG ICON -->
+      <svg class="mark" viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- DOG (left) -->
+        <ellipse cx="18" cy="26" rx="11" ry="9" fill="#C4622D"/>
+        <!-- dog ears -->
+        <ellipse cx="10" cy="19" rx="4" ry="6" fill="#C4622D" transform="rotate(-15 10 19)"/>
+        <ellipse cx="26" cy="19" rx="3.5" ry="5.5" fill="#C4622D" transform="rotate(10 26 19)"/>
+        <!-- dog snout -->
+        <ellipse cx="22" cy="28" rx="5" ry="3.5" fill="#E8A87C"/>
+        <!-- dog nose -->
+        <ellipse cx="23" cy="26.5" rx="1.5" ry="1" fill="#2C1A0E"/>
+        <!-- dog eye -->
+        <circle cx="14" cy="23" r="1.4" fill="#2C1A0E"/>
+        <!-- dog tail -->
+        <path d="M7 28 Q2 22 4 17" stroke="#C4622D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+        <!-- divider -->
+        <line x1="34" y1="12" x2="34" y2="36" stroke="#FBF6F0" stroke-width="1" opacity="0.3"/>
+
+        <!-- CAT (right) -->
+        <ellipse cx="50" cy="26" rx="10" ry="9" fill="#C4622D"/>
+        <!-- cat ears — pointy -->
+        <polygon points="41,20 38,11 45,17" fill="#C4622D"/>
+        <polygon points="59,20 62,11 55,17" fill="#C4622D"/>
+        <!-- inner ear -->
+        <polygon points="42,19 39.5,13 44.5,17" fill="#E8A87C" opacity="0.6"/>
+        <polygon points="58,19 60.5,13 55.5,17" fill="#E8A87C" opacity="0.6"/>
+        <!-- cat eyes -->
+        <ellipse cx="45" cy="24" rx="1.8" ry="2.2" fill="#2C1A0E"/>
+        <ellipse cx="55" cy="24" rx="1.8" ry="2.2" fill="#2C1A0E"/>
+        <!-- cat nose -->
+        <polygon points="50,28 48.5,30 51.5,30" fill="#2C1A0E"/>
+        <!-- cat whiskers -->
+        <line x1="40" y1="29" x2="47" y2="29" stroke="#FBF6F0" stroke-width="0.8" opacity="0.7"/>
+        <line x1="40" y1="31" x2="47" y2="31" stroke="#FBF6F0" stroke-width="0.8" opacity="0.7"/>
+        <line x1="53" y1="29" x2="60" y2="29" stroke="#FBF6F0" stroke-width="0.8" opacity="0.7"/>
+        <line x1="53" y1="31" x2="60" y2="31" stroke="#FBF6F0" stroke-width="0.8" opacity="0.7"/>
+        <!-- cat tail -->
+        <path d="M60 30 Q66 24 64 16" stroke="#C4622D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
       </svg>
       Elena's Happy Paws
     </a>
@@ -512,9 +531,27 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="wrap about-grid">
+
+      <!-- Column 1: Profile photo -->
+      <div class="profile-photo-wrap reveal">
+        <img
+          src="images/elena.jpg"
+          alt="Elena — Elena's Happy Paws"
+          class="profile-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="profile-photo-placeholder">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="18" r="10" stroke="#B8956A" stroke-width="2"/>
+            <path d="M6 42 C6 32 42 32 42 42" stroke="#B8956A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Upload <strong>images/elena.jpg</strong><br>to GitHub</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Info card -->
       <div class="about-card reveal">
         <div class="field"><span>Name</span><span>Elena K.</span></div>
         <div class="field"><span>Location</span><span>Amersfoort, NL</span></div>
@@ -524,35 +561,16 @@
         <div class="field"><span>Response time</span><span>Usually under an hour</span></div>
         <div class="field"><span>Skills</span><span>Oral medication, senior pets</span></div>
       </div>
+
+      <!-- Column 3: Bio text -->
       <div class="about-body reveal">
         <span class="section-label">About</span>
-
-        <!-- ================================================
-             YOUR PHOTO GOES HERE
-             1. Upload your photo to your GitHub repo /images folder
-             2. Name it: elena.jpg
-             3. The placeholder below will be replaced by your real photo automatically
-             ================================================ -->
-        <div class="profile-photo-wrap">
-          <img
-            src="images/elena1.jpg"
-            alt="Elena — Elena's Happy Paws"
-            class="profile-photo"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
-          <div class="profile-photo-placeholder">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="18" r="10" stroke="#B8956A" stroke-width="2"/>
-              <path d="M6 42 C6 32 42 32 42 42" stroke="#B8956A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-
         <p>"I believe every pet deserves to feel safe, happy, and loved — especially when their owner is away."</p>
         <p>My name is Elena, and I've always been passionate about animals and the unique personalities that make each one so special. A few years ago I became the happy parent of Arya, my cat, and caring for her made me realise how much I love truly understanding an animal's individual needs, routines, and preferences.</p>
         <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends — so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
         <p>Every visit comes with photos and videos so you're never left wondering. If something seems off — appetite, behaviour, energy — you hear about it the same day, not when you get home.</p>
       </div>
+
     </div>
   </section>
 
@@ -764,37 +782,42 @@
     days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
 
   // ================================================================
-  // CALENDAR — edit your availability here
-  // Format: "YYYY-MM-DD": "free" | "busy" | "full" | "away"
+  // CALENDAR — edit your availability here using date RANGES
+  // Much easier than listing every single day!
+  //
+  // Format: { from: "YYYY-MM-DD", to: "YYYY-MM-DD", status: "..." }
   //   free  = green  (available, clients can click to book)
   //   busy  = orange (some slots taken, still bookable)
   //   full  = red    (fully booked, not available)
   //   away  = purple (you're travelling, not available at all)
-  // Days not listed default to "free"
+  //
+  // Single days: set from and to to the same date
   // ================================================================
-  const SCHEDULE = {
-    "2026-07-01": "busy", "2026-07-02": "busy", "2026-07-03": "busy",
-    "2026-07-04": "busy", "2026-07-05": "busy", "2026-07-06": "busy",
-    "2026-07-07": "busy", "2026-07-08": "busy",
-    "2026-07-09": "away", "2026-07-10": "away", "2026-07-11": "away",
-    "2026-07-12": "away", "2026-07-13": "away", "2026-07-14": "away",
-    "2026-07-15": "away", "2026-07-16": "away", "2026-07-17": "away",
-    "2026-07-18": "away", "2026-07-19": "away", "2026-07-20": "away",
-    "2026-07-21": "away", "2026-07-22": "away", "2026-07-23": "away",
-    "2026-07-24": "busy", "2026-07-26": "busy", "2026-07-27": "busy",
-    "2026-07-28": "busy", "2026-07-29": "busy", "2026-07-30": "full",
-    "2026-07-31": "busy", "2026-08-01": "busy", "2026-08-02": "full",
-    "2026-08-03": "full",
-    // Away — Elena is travelling, not available at all
-    "2026-08-04": "away", "2026-08-05": "away", "2026-08-06": "away",
-    "2026-08-07": "away", "2026-08-08": "away", "2026-08-09": "away",
-    "2026-08-10": "away", "2026-08-11": "away",
-    "2026-08-15": "busy", "2026-08-16": "busy", "2026-08-17": "busy",
-    "2026-08-18": "busy", "2026-08-19": "busy", "2026-08-20": "busy",
-    "2026-08-21": "busy", "2026-08-22": "busy", "2026-08-23": "busy",
-    "2026-08-24": "busy", "2026-08-25": "busy", "2026-08-26": "busy",
-    "2026-08-27": "busy",
-  };
+  const RANGES = [
+    { from: "2026-07-01", to: "2026-07-08", status: "busy" },
+    { from: "2026-07-09", to: "2026-07-23", status: "full" },
+    { from: "2026-07-24", to: "2026-07-24", status: "busy" },
+    { from: "2026-07-26", to: "2026-07-29", status: "busy" },
+    { from: "2026-07-30", to: "2026-07-30", status: "full" },
+    { from: "2026-07-31", to: "2026-08-01", status: "busy" },
+    { from: "2026-08-02", to: "2026-08-03", status: "full" },
+    { from: "2026-08-04", to: "2026-08-11", status: "away" },
+    { from: "2026-08-12", to: "2026-08-27", status: "busy" },
+  ];
+
+  // Builds a flat lookup from the ranges above — no need to touch this
+  function buildSchedule(ranges){
+    const map = {};
+    ranges.forEach(({ from, to, status }) => {
+      const start = new Date(from), end = new Date(to);
+      for(let d = new Date(start); d <= end; d.setDate(d.getDate()+1)){
+        const key = d.toISOString().slice(0,10);
+        map[key] = status;
+      }
+    });
+    return map;
+  }
+  const SCHEDULE = buildSchedule(RANGES);
 
   const TODAY = new Date();
   let viewYear = TODAY.getFullYear();
