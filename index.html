@@ -450,8 +450,8 @@
             <strong>Visit Log — Today</strong>
             <span id="logbook-date"></span>
           </div>
-          <div class="lp-row"><span class="lp-time">8:10 AM</span><span class="lp-note">Fed, fresh water, litter scooped</span><span class="lp-tag">Milo 🐱</span></div>
-          <div class="lp-row"><span class="lp-time">9:30 AM</span><span class="lp-note">45 min walk, happy &amp; tired after</span><span class="lp-tag">Biscuit 🐶</span></div>
+          <div class="lp-row"><span class="lp-time">8:10 AM</span><span class="lp-note">Fed, fresh water, litter scooped</span><span class="lp-tag">Mia 🐱</span></div>
+          <div class="lp-row"><span class="lp-time">9:30 AM</span><span class="lp-note">45 min walk, happy &amp; tired after</span><span class="lp-tag">Fred 🐶</span></div>
           <div class="lp-row"><span class="lp-time">1:40 PM</span><span class="lp-note">Pellets, hay topped up, cage cleaned</span><span class="lp-tag">Coco 🐇</span></div>
         </div>
       </div>
@@ -476,7 +476,7 @@
         <div class="service-card">
           <div class="entry-no">ENTRY / 01</div>
           <h3>Cat sitting</h3>
-          <p>Drop-in visits or overnight stays for cats. Feeding, litter, fresh water, and company on their terms — no rush, no strangers' smells.</p>
+          <p>Drop-in visits or overnight stays for cats. Feeding, litter, fresh water, and company on their terms no rush, no strangers' smells.</p>
           <div class="service-price">from €16 / visit · €55 / night</div>
         </div>
         <div class="service-card">
@@ -506,7 +506,7 @@
         <div class="service-card">
           <div class="entry-no">ENTRY / 06</div>
           <h3>Medication &amp; senior care</h3>
-          <p>Pills, insulin, subcutaneous fluids, mobility support — for any species. Routines that need precision and patience are welcome.</p>
+          <p>Pills, insulin, subcutaneous fluids, mobility support for any species. Routines that need precision and patience are welcome.</p>
           <div class="service-price">from €22 / visit</div>
         </div>
         <div class="service-card">
@@ -518,13 +518,13 @@
         <div class="service-card">
           <div class="entry-no">ENTRY / 08</div>
           <h3>Plant &amp; home care</h3>
-          <p>Added to any visit — watering, mail pickup, rotating lights and blinds so the house looks lived-in while you're away.</p>
+          <p>Just need a visit for watering, mail pickup, putting and picking up trash bins, rotating lights and blinds so the house looks lived-in while you're away.</p>
           <div class="service-price">€4 / visit</div>
         </div>
         <div class="service-card">
           <div class="entry-no">ENTRY / 09</div>
           <h3>Meet &amp; greet</h3>
-          <p>A free first meeting before any booking — for your pets to get used to me, and for us to go over routines and any special needs.</p>
+          <p>A free first meeting before any booking for your pets to get used to me, and for us to go over routines and any special needs.</p>
           <div class="service-price">no charge</div>
         </div>
       </div>
@@ -565,10 +565,10 @@
       <!-- Column 3: Bio text -->
       <div class="about-body reveal">
         <span class="section-label">About</span>
-        <p>"I believe every pet deserves to feel safe, happy, and loved — especially when their owner is away."</p>
+        <p>"I believe every pet deserves to feel safe, happy, and loved especially when their owner is away."</p>
         <p>My name is Elena, and I've always been passionate about animals and the unique personalities that make each one so special. A few years ago I became the happy parent of Arya, my cat, and caring for her made me realise how much I love truly understanding an animal's individual needs, routines, and preferences.</p>
-        <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends — so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
-        <p>Every visit comes with photos and videos so you're never left wondering. If something seems off — appetite, behaviour, energy — you hear about it the same day, not when you get home.</p>
+        <p>I currently work a part-time morning job, which gives me great flexibility in the afternoons, evenings, and weekends, so I can dedicate real time to every pet I care for, and adjust my schedule to fit their routine when needed.</p>
+        <p>Every visit comes with photos and videos so you're never left wondering. If something seems off appetite, behaviour, energy you hear about it the same day, not when you get home.</p>
       </div>
 
     </div>
@@ -580,7 +580,7 @@
       <div class="section-head reveal" style="color:var(--paper);">
         <span class="section-label" style="color:var(--ochre);">Schedule</span>
         <h2 style="color:var(--paper);">Current availability</h2>
-        <p style="opacity:0.75;">A general view of open and booked days. Exact visit times are confirmed once you reach out — this shows day-level availability only.</p>
+        <p style="opacity:0.75;">A general view of open and booked days. Exact visit times are confirmed once you reach out this shows day-level availability only.</p>
       </div>
       <div class="cal-card reveal">
         <div class="cal-top">
@@ -734,7 +734,7 @@
                 <option>Chickens &amp; backyard birds</option>
                 <option>Medication &amp; senior care</option>
                 <option>Twice-daily visits</option>
-                <option>Multi-pet household</option>
+                <option>Meet &amp; greet</option>
                 <option>Not sure yet</option>
               </select>
             </div>
@@ -794,15 +794,13 @@
   // Single days: set from and to to the same date
   // ================================================================
   const RANGES = [
-    { from: "2026-07-01", to: "2026-07-08", status: "busy" },
-    { from: "2026-07-09", to: "2026-07-23", status: "full" },
-    { from: "2026-07-24", to: "2026-07-24", status: "busy" },
-    { from: "2026-07-26", to: "2026-07-29", status: "busy" },
-    { from: "2026-07-30", to: "2026-07-30", status: "full" },
-    { from: "2026-07-31", to: "2026-08-01", status: "busy" },
-    { from: "2026-08-02", to: "2026-08-03", status: "full" },
-    { from: "2026-08-04", to: "2026-08-11", status: "away" },
     { from: "2026-08-12", to: "2026-08-27", status: "busy" },
+    { from: "2026-07-09", to: "2026-07-23", status: "away" },
+    { from: "2026-07-24", to: "2026-07-24", status: "busy" },
+    { from: "2026-07-26", to: "2026-01-02", status: "busy" },
+    { from: "2026-07-30", to: "2026-07-30", status: "full" },
+    { from: "2026-08-02", to: "2026-08-03", status: "full" },
+
   ];
 
   // Builds a flat lookup from the ranges above — no need to touch this
