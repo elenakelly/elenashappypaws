@@ -7,40 +7,24 @@ export default async function handler(req, res) {
     if (!token || !chatId) return res.status(500).json({ error: 'Telegram not configured' });
 
     const body = req.body;
-    let text, reply_markup;
+    let text;
 
     if (body.type === 'review') {
-      // ── REVIEW SUBMISSION ──
       const stars = '★'.repeat(Number(body.rating)) + '☆'.repeat(5 - Number(body.rating));
+      const date  = new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
       text = `
-⭐ *New review waiting for approval*
+⭐ *New review — Elena's Happy Paws*
 
 👤 *Name:* ${body.name || '—'}
 ${stars} *(${body.rating}/5)*
 🐾 *Service:* ${body.service || '—'}
+📅 *Date:* ${date}
 💬 *Review:* ${body.text || '—'}
 
-Approve to show it on your website, or reject to discard it.
+➡️ Copy this to add it to your site, or ignore to discard it.
       `.trim();
 
-      // Encode review data as base64 so we can store it in the callback
-      const reviewData = Buffer.from(JSON.stringify({
-        name:    body.name,
-        rating:  Number(body.rating),
-        service: body.service,
-        text:    body.text,
-        date:    new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-      })).toString('base64');
-
-      reply_markup = {
-        inline_keyboard: [[
-          { text: '✅ Approve', callback_data: `approve:${reviewData}` },
-          { text: '❌ Reject',  callback_data: 'reject' },
-        ]],
-      };
-
     } else {
-      // ── INQUIRY SUBMISSION ──
       text = `
 🐾 *New inquiry — Elena's Happy Paws*
 
@@ -54,11 +38,17 @@ Approve to show it on your website, or reject to discard it.
       `.trim();
     }
 
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const telegramRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown', ...(reply_markup ? { reply_markup } : {}) }),
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
     });
+
+    const telegramData = await telegramRes.json();
+    if (!telegramData.ok) {
+      console.error('Telegram error:', JSON.stringify(telegramData));
+      return res.status(500).json({ error: 'Telegram send failed', detail: telegramData });
+    }
 
     return res.status(200).json({ ok: true });
   } catch (err) {
