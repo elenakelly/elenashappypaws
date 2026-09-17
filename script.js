@@ -11,32 +11,38 @@
 ================================================================ */
 const REVIEWS = [
   {
+    name: "Patricia O.", date: "September 2026", source: "rover",
+    stars: 5, service: "House Sitting", duration: "House sitting · 1 day",
+    photo: "",
+    text: "Wij hebben het erg getroffen met Elena. Ze was super lief voor Bikkel en ook ondernemend. Ondanks dat Bikkel terminaal is heeft ze echt alles uit de kast getrokken om er een leuke dag van te maken voor Bikkel. Bikkel was zeer actief die dag, ondanks dat hij zo ziek is. Wij waren echt de hele dag weg en kregen de dag door mooie foto's en informatie over Bikkel. Wij merkte aan Bikkel dat hij rustig was en niet overprikkeld was toen wij thuis kwamen. Elena is een echte aanrader. 😊"
+  },
+  {
     name: "Vlad A.", date: "September 2026", source: "rover",
-    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 7 days",
+    stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
     photo: "",
     text: "Elena was amazing with our cats. She literally made our vacation care free. Our cats were happy to see her and she spent quality time with them."
   },
   {
     name: "Yosri B.", date: "September 2026", source: "rover",
-    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 14 days",
+    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 20 days",
     photo: "",
     text: "Elena provided incredible service for my two cats. They thrive on attention and play, which she provided expertly. I was able to leave on a 2-week trip without any worries thanks to her daily updates. Will contact her again!"
   },
   {
     name: "Seoyoon L.", date: "August 2026", source: "rover",
-    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 10 days",
+    stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
     photo: "",
     text: "She is a great sitter. Her approach is gentle and she takes time to observe my cat and the situation during my absence. I could fully rely on her during my holiday and the first time I was away from my cat."
   },
   {
     name: "Tess D.", date: "August 2026", source: "rover",
-    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 14 days",
+    stars: 5, service: "Drop-in Visits", duration: "Every second day · 7 days",
     photo: "",
     text: "Elena is amazing! We immediately felt at ease after meeting her. Both Lilith and Mars immediately came and greeted her upon arrival, which is rare for them. She sent updates with pictures and videos every day. We will definitely ask her again!"
   },
   {
     name: "Karin T.", date: "August 2026", source: "rover",
-    stars: 5, service: "Drop-in Visits", duration: "Daily visits · 7 days",
+    stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
     photo: "",
     text: "Elena heeft een week voor onze twee poezen gezorgd. Eentje is nogal schuw en ze heeft met enorm veel geduld en begrip voor haar gezorgd, iedere dag kregen we uitgebreid verslag. We zijn ontzettend blij en gaan haar zeker weer vragen!"
   },
@@ -49,7 +55,7 @@ const REVIEWS = [
   {
     name: "Tiffany S.", date: "March 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Daily visits · 7 days",
-    photo: "",
+    photo: "images/pet16.jpg",
     text: "Elena was a great sitter for our cat Salchi. She was really attentive, especially when Salchi threw up at some point — she watched over him and kept us posted the whole time. Super reliable and easy to communicate with. Definitely recommend."
   },
   {
@@ -73,12 +79,10 @@ const REVIEWS = [
    Single day: set from and to the same date
 ================================================================ */
 const RANGES = [
-  { from: "2026-07-09", to: "2026-07-23", status: "away" },
+  { from: "2026-12-21", to: "2027-01-08", status: "away" },
   { from: "2026-07-24", to: "2026-07-24", status: "busy" },
-  { from: "2026-07-26", to: "2026-08-01", status: "busy" },
-  { from: "2026-07-30", to: "2026-07-30", status: "full" },
   { from: "2026-08-02", to: "2026-08-03", status: "full" },
-  { from: "2026-08-12", to: "2026-08-27", status: "busy" },
+
 ];
 
 /* ================================================================
@@ -86,7 +90,7 @@ const RANGES = [
    Change this number when you get new reviews.
    It updates everywhere on the page automatically.
 ================================================================ */
-const REVIEW_COUNT = 17;
+const REVIEW_COUNT = 19;
 
 /* ================================================================
    DO NOT EDIT BELOW THIS LINE
