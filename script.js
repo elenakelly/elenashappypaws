@@ -13,43 +13,43 @@ const REVIEWS = [
   {
     name: "Patricia O.", date: "September 2026", source: "rover",
     stars: 5, service: "House Sitting", duration: "House sitting · 1 day",
-    photo: "",
+    photo: "images/pet30.jpg/",
     text: "Wij hebben het erg getroffen met Elena. Ze was super lief voor Bikkel en ook ondernemend. Ondanks dat Bikkel terminaal is heeft ze echt alles uit de kast getrokken om er een leuke dag van te maken voor Bikkel. Bikkel was zeer actief die dag, ondanks dat hij zo ziek is. Wij waren echt de hele dag weg en kregen de dag door mooie foto's en informatie over Bikkel. Wij merkte aan Bikkel dat hij rustig was en niet overprikkeld was toen wij thuis kwamen. Elena is een echte aanrader. 😊"
   },
   {
     name: "Vlad A.", date: "September 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
-    photo: "",
+    photo: "images/pet24.jpg",
     text: "Elena was amazing with our cats. She literally made our vacation care free. Our cats were happy to see her and she spent quality time with them."
   },
   {
     name: "Yosri B.", date: "September 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Daily visits · 20 days",
-    photo: "",
+    photo: "images/pet25.jpg",
     text: "Elena provided incredible service for my two cats. They thrive on attention and play, which she provided expertly. I was able to leave on a 2-week trip without any worries thanks to her daily updates. Will contact her again!"
   },
   {
     name: "Seoyoon L.", date: "August 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
-    photo: "",
+    photo: "images/pet31.jpg",
     text: "She is a great sitter. Her approach is gentle and she takes time to observe my cat and the situation during my absence. I could fully rely on her during my holiday and the first time I was away from my cat."
   },
   {
     name: "Tess D.", date: "August 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Every second day · 7 days",
-    photo: "",
+    photo: "images/pet27.jpg",
     text: "Elena is amazing! We immediately felt at ease after meeting her. Both Lilith and Mars immediately came and greeted her upon arrival, which is rare for them. She sent updates with pictures and videos every day. We will definitely ask her again!"
   },
   {
     name: "Karin T.", date: "August 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Twice a day visits · 7 days",
-    photo: "",
+    photo: "images/pet29.jpg",
     text: "Elena heeft een week voor onze twee poezen gezorgd. Eentje is nogal schuw en ze heeft met enorm veel geduld en begrip voor haar gezorgd, iedere dag kregen we uitgebreid verslag. We zijn ontzettend blij en gaan haar zeker weer vragen!"
   },
   {
     name: "Rob V.", date: "April 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Daily visits · 5 days",
-    photo: "",
+    photo: "impages/pet6.jpg",
     text: "Elena took very well care of our two cats. Every day some lovely pictures and short movies of our cats. Thanks Elena, for all your help."
   },
   {
@@ -61,13 +61,13 @@ const REVIEWS = [
   {
     name: "Maartje v.", date: "January 2026", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Daily visits · 10 days",
-    photo: "",
+    photo: "impages/pet7.jpg",
     text: "Elena was a dream catsitter! Everything in her profile is true, and more. Excellent with communication, spent plenty of time playing with our 2 cats. Without her, we wouldn't have been able to enjoy our holiday ❤️"
   },
   {
     name: "Danielle F.", date: "November 2025", source: "rover",
     stars: 5, service: "Drop-in Visits", duration: "Daily visits · 5 days",
-    photo: "",
+    photo: "images/pet15.jpg",
     text: "We're really pleased with our experience with Elena. She's very communicative, reliable, and we came home to a happy and relaxed little cat. We would definitely recommend her to anyone looking for a pet sitter in the Amersfoort area."
   },
 ];
